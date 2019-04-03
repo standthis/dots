@@ -1,0 +1,149 @@
+## In addition, formats support markers used for text attributes.  They are
+## followed by character '$'. After that you can put:
+##
+## - 0 - default window color (discards all other colors)
+## - 1 - black
+## - 2 - red
+## - 3 - green
+## - 4 - yellow
+## - 5 - blue
+## - 6 - magenta
+## - 7 - cyan
+## - 8 - white
+## - 9 - end of current color
+## - b - bold text
+## - u - underline text
+## - r - reverse colors
+## - a - use alternative character set
+##### song format #####
+##
+## For a song format you can use:
+##
+## %l - length
+## %f - filename
+## %D - directory
+## %a - artist
+## %A - album artist
+## %t - title
+## %b - album
+## %y - date
+## %n - track number (01/12 -> 01)
+## %N - full track info (01/12 -> 01/12)
+## %g - genre
+## %c - composer
+## %p - performer
+## %d - disc
+## %C - comment
+## %P - priority
+## $R - begin right alignment
+#
+## Config 
+allow_for_physical_item_deletion = no
+external_editor = "/usr/bin/vim"
+#alternative_header_second_line_format = {{$4$b%a$/b$9}{ - $7%b$9}{ ($4%y$9)}}|{%D}
+alternative_header_first_line_format = "$8$aqqu$/a$b {%t}|{%f} $/b$8$atqq$/a$9"
+alternative_header_second_line_format = "{{$8%a}{$8 - %b$9}{$8 (%y)$8}}|{%D$9}"
+#alternative_header_first_line_format = $b$1$aqqu$/a$9 {%t}|{%f} $1$atqq$/a$9$/b
+#
+#alternative_header_second_line_format = {{$4$b%a$/b$9}{ - $7%b$9}{ ($4%y$9)}}|{%D}
+#
+## Note: set to yes if external editor is a console application.
+##
+use_console_editor = yes
+
+
+# Display ..
+song_list_format = " $8%n $1•$8%b $8{%t}|{%D/%f} $R$0%a "
+song_columns_list_format = "(3)[]{}(85)[white]{t|f} (3)[blue]{a|D}"
+song_status_format = "$2%n $0 $2{%t}|{%D/%f} $0 $2%b $0 $2%a "
+playlist_display_mode = "columns" (classic/columns)
+
+# Now Playing ..
+now_playing_prefix = "$3>"
+now_playing_suffix = "$8$/b"
+
+# Playlist ..
+browser_playlist_prefix = "$2 ♥ $0 "
+
+# Delays .. 
+playlist_disable_highlight_delay = "1"
+message_delay_time= "1"
+
+# Progress Bar ..
+progressbar_color = "black"
+progressbar_elapsed_color = "green:b"
+
+#Bar looks
+#progressbar_look = "───"
+#progressbar_look = "━━─"
+#progressbar_look = "=>"
+progressbar_look = "─- "
+#progressbar_look = "▒▒░"
+#progressbar_look = "┅┅┄"
+#progressbar_look = "─⊙┄"
+#progressbar_look = "─➞─"
+#progressbar_look = "─┅─"
+#progressbar_look = "▪▪▪"
+#progressbar_look = "▪▪▫"
+##progressbar_look = "───"
+##progressbar_look = "▁▁▁"
+#progressbar_look = "‒‒‒"
+##progressbar_look = "■◣ "
+#progressbar_look = "◈◆◇"
+
+# Colors ..
+colors_enabled = "yes"
+empty_tag_color = "red"
+statusbar_color = "white"
+state_line_color = "red" #
+state_flags_color = "black:b"
+main_window_color = "white"
+header_window_color = "red" #
+statusbar_time_color = "white"
+player_state_color = "white" 
+current_item_prefix = "$(white)$r"
+current_item_suffix = "$/r$(end)"
+volume_color = "red"
+
+# Misc ..   
+display_volume_level = "yes"
+volume_change_step = 1
+display_bitrate = "yes"
+autocenter_mode = "yes"
+centered_cursor = "yes"
+titles_visibility = "no"
+statusbar_visibility = "yes"
+empty_tag_marker=" -- ‼ -- " 
+mouse_support = "no"
+header_visibility = "no"
+display_remaining_time = "yes"
+ask_before_clearing_playlists = "no"
+discard_colors_if_item_is_selected = "yes"
+
+visualizer_fifo_path = "/tmp/mpd.fifo"
+visualizer_output_name = "my_fifo"
+visualizer_sync_interval = "30" 
+visualizer_in_stereo = "yes"
+visualizer_type = "spectrum"
+visualizer_color = "blue"
+#visualizer_type = "ellipse"
+#visualizer_type = "wave"
+#visualizer_type = "wave_filled"
+#visualizer_look = "▋▋"
+#visualizer_look = "??"
+
+#visualizer_look = "▉."
+#visualizer_look = "▉▋"
+#visualizer_look = "▋▋"
+#isualizer_look = "◆▋"
+#visualizer_look = "|◆"
+#visualizer_look = "◈░"
+#visualizer_look = "││"
+#visualizer_look = "▀▋"
+#visualizer_look = "▀○"
+#visualizer_look = "█▋"
+#visualizer_look = "██"
+#visualizer_look = ".."
+visualizer_look = "●▮"
+
+#execute_on_song_change = "echo $(echo /home/dak/music/$(mpc current -f %file%)|sed 's_\(.*\)/\(.*\)/\(.*\)_\1/\2/_') > /home/dak/current_music"

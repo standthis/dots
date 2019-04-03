@@ -1,0 +1,127 @@
+def_key "+"
+    show_clock
+def_key "="
+    volume_up
+
+def_key "j"
+    scroll_down
+def_key "k"
+    scroll_up
+
+def_key "ctrl-u"
+    page_up
+#push_characters "kkkkkkkkkkkkkkk"
+def_key "ctrl-d"
+    page_down
+#push_characters "jjjjjjjjjjjjjjj"
+
+def_key "h"
+    previous_column
+def_key "l"
+    next_column
+
+def_key "n"
+    next_found_item
+def_key "N"
+    previous_found_item
+
+# not used but bound
+#def_key "ctrl-j"
+#    move_sort_order_down
+#def_key "ctrl-k"
+#    move_sort_order_up
+
+def_key "K"
+    select_item
+    scroll_up
+
+def_key "J"
+    select_item
+    scroll_down
+
+def_key "ctrl-k"
+  move_selected_items_up
+
+def_key "ctrl-j"
+  move_selected_items_down
+
+def_key "p"
+  move_selected_items_to
+
+def_key "F"
+  apply_filter
+
+def_key "g"
+  move_home
+
+def_key "G"
+  move_end
+
+def_key "ctrl-b"
+  page_up
+
+def_key "ctrl-f"
+  page_down
+
+def_key "f"
+  jump_to_position_in_song
+
+def_key "d"
+  delete_playlist_items
+
+#def_key "delete"
+#  delete_playlist_items
+
+#def_key "delete"
+#  delete_browser_items
+
+def_key "d"
+  delete_stored_playlist
+
+
+def_key "D"
+  clear_playlist
+def_key "D"
+  clear_main_playlist
+
+def_key "c"
+  pause
+
+def_key "w"
+  next
+
+def_key "b"
+  previous
+
+def_key "insert"
+  select_item
+
+def_key "y"
+  save_tag_changes
+
+def_key "y"
+  start_searching
+
+def_key "y"
+  toggle_single
+
+def_key "a"
+  add_selected_items
+
+def_key "O"
+  jump_to_playlist_editor
+
+def_key "ctrl-i"
+  seek_forward
+
+def_key "V"
+  remove_selection
+
+def_key "ctrl-o"
+  seek_backward
+
+def_key "t"
+  show_lyrics
+
+def_key "ctrl-t"
+  toggle_lyrics_fetcher
