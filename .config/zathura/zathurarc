@@ -1,0 +1,3 @@
+map [normal] b focus_inputbar ":blist "
+map [normal] v focus_inputbar ":bmark "
+map [normal] x focus_inputbar ":bdelete "

@@ -1,0 +1,34 @@
+[core]
+cache_dir = /var/cache/mopidy
+config_dir = /etc/mopidy
+data_dir = /var/lib/mopidy
+restore_state = true 
+
+[logging]
+config_file = /etc/mopidy/logging.conf
+debug_file = /var/log/mopidy/mopidy-debug.log
+
+[local]
+data_dir = /var/lib/mopidy/local
+media_dir = /var/lib/mopidy/media
+
+[m3u]
+playlists_dir = /var/lib/mopidy/playlists
+
+[soundcloud]
+auth_token = 1-35204-609849276-a211fcdf7b76f2
+explore_songs = 100
+
+[alsamixer]
+card = 0
+control = PCM
+min_volume = 0
+max_volume = 100
+volume_scale = cubic
+
+[audio]
+mixer = none
+#mixer_track = 
+#mixer_volume = 
+#output = alsasink
+#visualizer = 

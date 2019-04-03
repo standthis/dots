@@ -1,0 +1,35 @@
+datetime-format "%F" 
+browser "qutebrowser %u" 
+#html-renderer "w3m -dump -T text/html" 
+#color info white cyan bold
+#color listfocus white magenta bold
+#color listfocus_unread white magenta bold
+
+unbind-key g # bound to `sort` by default
+bind-key g home
+unbind-key G # bound to `rev-sort` by default
+bind-key G end
+
+unbind-key S 
+bind-key S sort
+unbind-key s 
+bind-key s rev-sort
+
+unbind-key h
+unbind-key j
+unbind-key k
+unbind-key l
+
+bind-key h quit
+bind-key j down
+bind-key k up
+bind-key l open
+
+# Colors
+color background          white   black 
+color listnormal          white   black dim
+color listfocus           white  black   bold
+color listnormal_unread   white black  
+color listfocus_unread    white black   bold
+color info                black  black  bold
+color article             white   black 
