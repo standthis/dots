@@ -79,9 +79,8 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 
 " Statusline and vertsplit highlight
-hi statusline term=inverse,bold cterm=inverse,bold gui=inverse,bold ctermfg=black ctermbg=white guifg=darkblue guibg=white
-hi statuslinenc term=inverse,bold cterm=inverse,bold gui=inverse,bold ctermfg=black ctermbg=white guifg=darkblue guibg=darkblue
+hi statusline term=NONE cterm=NONE gui=NONE ctermfg=grey ctermbg=NONE guifg=darkblue guibg=white
+hi statuslinenc term=NONE cterm=NONE gui=NONE ctermfg=grey ctermbg=NONE guifg=darkblue guibg=darkblue
 hi VertSplit ctermfg=black ctermbg=NONE
-
 " hi StatusLine ctermbg=white ctermfg=black 
 " hi StatusLineNC ctermbg=white ctermfg=black
