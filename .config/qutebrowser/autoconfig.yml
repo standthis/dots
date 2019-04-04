@@ -7,9 +7,12 @@ settings:
     '*://duckduckgo.com/*': true
     '*://github.com/*': true
     '*://mail.protonmail.com/*': true
+    '*://peekier.com/*': true
     '*://scholar.google.co.za/*': true
+    '*://searx.me/*': true
     '*://soundcloud.com/*': true
     '*://www.discogs.com/*': true
+    '*://www.searchencrypt.com/*': false
     '*://www.startpage.com/*': true
   qt.force_software_rendering:
     global: chromium

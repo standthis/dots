@@ -75,7 +75,8 @@ bindsym $mod+minus exec amixer -q -M set Master 1%-
 
 # Start Applications
 #bindsym $mod+c workspace 8; exec --no-startup-id chromium
-bindsym $mod+c exec --no-startup-id chromium
+#bindsym $mod+c exec --no-startup-id chromium
+bindsym $mod+c exec --no-startup-id brave
 bindsym $mod+x exec signal-desktop
 bindsym $mod+q exec qutebrowser
 
@@ -185,6 +186,7 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 # Open applications on specific workspaces
 assign [class="qutebrowser"] $ws1
 assign [class="Chromium"] $ws8
+assign [class="Brave-browser"] $ws8
 assign [class="Signal"] $ws9
 
 # reload the configuration file
