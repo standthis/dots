@@ -83,7 +83,9 @@ bindsym $mod+q exec qutebrowser
 # Pape randomiser 
 #bindsym $mod+p exec papechange.sh
 # Pause/Play mpd
-bindsym $mod+p exec mpc toggle
+bindsym $mod+p exec mpc -q toggle
+bindsym $mod+Shift+p exec amixer -q set Master toggle
+bindsym $mod+Shift+s exec mpc -q stop
 
 # change focus
 bindsym $mod+h focus left
