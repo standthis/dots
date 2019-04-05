@@ -84,3 +84,6 @@ hi statuslinenc term=NONE cterm=NONE gui=NONE ctermfg=grey ctermbg=NONE guifg=da
 hi VertSplit ctermfg=black ctermbg=NONE
 " hi StatusLine ctermbg=white ctermfg=black 
 " hi StatusLineNC ctermbg=white ctermfg=black
+
+" Give :terminal Esc behavior
+tnoremap <Esc> <C-\><C-n>

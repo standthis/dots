@@ -81,7 +81,9 @@ bindsym $mod+x exec signal-desktop
 bindsym $mod+q exec qutebrowser
 
 # Pape randomiser 
-bindsym $mod+p exec papechange.sh
+#bindsym $mod+p exec papechange.sh
+# Pause/Play mpd
+bindsym $mod+p exec mpc toggle
 
 # change focus
 bindsym $mod+h focus left
