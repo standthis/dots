@@ -1413,6 +1413,7 @@ c.url.searchengines = {
         'se': 'https://www.searchencrypt.com/search?q={}',
         #'sp': 'https://startpage.com/do/asearch?q={}',
         'sp': 'https://www.startpage.com/do/dsearch?query={}&cat=web&pl=opensearch',
+        's': 'https://www.startpage.com/do/dsearch?query={}&cat=web&pl=opensearch',
         'q': 'https://www.qwant.com/?q={}&t=web',
         'sx': 'https://searx.me/?q={}',
         'x': 'https://searx.me/?q={}',
