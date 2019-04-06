@@ -87,6 +87,10 @@ bindsym $mod+p exec mpc -q toggle
 bindsym $mod+Shift+p exec amixer -q set Master toggle
 bindsym $mod+Shift+s exec mpc -q stop
 
+# MPV style next, prev for mpd
+bindsym $mod+Shift+comma exec mpc -q prev
+bindsym $mod+Shift+period exec mpc -q next
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down

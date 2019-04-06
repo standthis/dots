@@ -187,6 +187,9 @@ alias yt="youtube-dl --add-metadata -i -o '%(upload_date)s-%(title)s.%(ext)s'"
 alias yta="yt -x -f bestaudio/best"
 alias face="zathura $HOME/honours/interfacing/LectureNotes_Interfacing1.pdf & disown"
 
+pdf2png () {
+	pdftoppm "$1" "${1%.*}" -png
+}
 
 cl () {
    ccat $1 | less 
