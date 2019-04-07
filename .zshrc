@@ -134,7 +134,7 @@ alias xa='exa -a'
 alias xla='exa -lag'
 alias xx='exa -lag'
 alias diff='diff --color=auto'
-alias mp='ncmpcpp -b ~/.ncmpcpp/ncmpcpp.bindings'
+alias mp='ncmpcpp -b $HOME/.ncmpcpp/ncmpcpp.bindings'
 alias ccat='highlight --out-format=ansi'
 alias bk='cd $OLDPWD'
 alias coin='coinmon -t 5'
@@ -156,15 +156,15 @@ alias ethspeed='speedometer -r eno1'
 alias sp='sudo pacman'
 alias nb='newsboat -r'
 alias sx='startx'
-alias qute='cd ~/.config/qutebrowser/'
-alias zrc='vim ~/.zshrc'
-alias img='cd ~/images; ra'
-alias dl='cd ~/Downloads'
-alias szrc='source ~/.zshrc'
-alias szsh='source ~/.zshrc'
+alias qute='cd $HOME/.config/qutebrowser/'
+alias zrc='vim $HOME/.zshrc'
+alias img='cd $HOME/images; ra'
+alias dl='cd $HOME/Downloads'
+alias szrc='source $HOME/.zshrc'
+alias szsh='source $HOME/.zshrc'
 alias lap='ssh eets@laptop'
 alias dee='ssh dee@dee'
-alias i3c='vim ~/.config/i3/config'
+alias i3c='vim $HOME/.config/i3/config'
 alias za='zathura'
 alias woman='man'
 alias pi='ssh pi@192.168.1.86'
@@ -175,7 +175,7 @@ alias publicip='wget http://checkip.dyndns.org/ -O - -o /dev/null | cut -d: -f 2
 alias f='fff'
 alias pub='dig +short myip.opendns.com @resolver1.opendns.com'
 alias publ='ssh -t dee@dee "cat .scripts/pub.ip"'
-alias libr='cd ~/honours/lib; ranger'
+alias libr='cd $HOME/honours/lib; ranger'
 alias proj='cd $HOME/honours/projMan/proposal; ranger'
 alias ytv='youtube-viewer -C'
 alias yt='youtube-dl'
@@ -186,6 +186,8 @@ alias tsm='transmission-remote'
 alias yt="youtube-dl --add-metadata -i -o '%(upload_date)s-%(title)s.%(ext)s'"
 alias yta="yt -x -f bestaudio/best"
 alias face="zathura $HOME/honours/interfacing/LectureNotes_Interfacing1.pdf & disown"
+alias yays="yay && pkill -RTMIN+2 i3blocks"
+alias updated="pkill -RTMIN+2 i3blocks"
 
 pdf2png () {
 	pdftoppm "$1" "${1%.*}" -png
@@ -198,7 +200,7 @@ cl () {
 setvol() {
     if [ "$1" -lt "20" ]
     then    
-        amixer -M sset 'Master' $1%
+        amixer -M sset 'Master' $1% && pkill -RTMIN+1 i3blocks
     else 
         echo gtfo | grep --color gtfo
     fi

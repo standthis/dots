@@ -47,6 +47,7 @@ color=#A4C2F4
 [arch-update -q]
 interval=3600
 markup=pango
+signal=2
 #label=Updates: 
 #LABEL=Updates: # recent versions of i3blocks
 
@@ -66,7 +67,7 @@ separator=false
 [volume]
 label=♪
 instance=Master
-interval=5
+interval=10
 signal=1
 color=#A54242
 
