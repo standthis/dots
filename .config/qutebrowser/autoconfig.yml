@@ -4,6 +4,7 @@
 config_version: 2
 settings:
   content.javascript.enabled:
+    '*://docs.opencv.org/*': true
     '*://duckduckgo.com/*': true
     '*://github.com/*': true
     '*://mail.protonmail.com/*': true
@@ -18,3 +19,5 @@ settings:
     global: chromium
   statusbar.hide:
     global: false
+  tabs.show:
+    global: never

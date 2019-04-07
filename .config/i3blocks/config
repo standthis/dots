@@ -67,14 +67,8 @@ separator=false
 label=♪
 instance=Master
 interval=5
-signal=10
+signal=1
 color=#A54242
-#instance=PCM
-#label=VOL
-#color=#E31A1C
-#[vol]
-#command=date +'%U %a %m.%d %H:%M'
-#interval=10
 
 [cpu_usage]
 label=CPU
