@@ -57,10 +57,11 @@ markup=pango
 # See the script for details.
 # MPV 
 [song]
-command=echo $(mpc current) $(mpc status | grep -Eo '\(.+\)' | sed 's/^.//; s/.$//')
-interval=10
+command=mpc current --wait
+interval=repeat
 color=#A54242
 separator=false
+#command=echo $(mpc current) $(mpc status | grep -Eo '\(.+\)' | sed 's/^.//; s/.$//')
 
 [volume]
 label=♪
