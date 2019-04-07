@@ -91,6 +91,9 @@ bindsym $mod+Shift+s exec mpc -q stop
 bindsym $mod+Shift+comma exec mpc -q prev
 bindsym $mod+Shift+period exec mpc -q next
 
+# i3lock
+bindsym $mod+Shift+backslash exec i3lock
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
