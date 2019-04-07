@@ -101,10 +101,11 @@ interval=30
 color=#3182BD
 
 [memory]
-label=SWAP
+label=S
 instance=swap
 separator=false
 interval=30
+#label=SWAP
 
 # Disk usage
 #
@@ -112,15 +113,38 @@ interval=30
 # The script may be called with a optional argument to set the alert
 # (defaults to 10 for 10%).
 [disk]
-label=ROOT
+label=
 instance=/
 interval=30
 separator=false
+#label=ROOT
 
 [disk]
-label=HOME
+label=
 interval=30
+separator=false
+#label=HOME
 #instance=/mnt/data
+
+[disk-io -S -w 3]
+interval=persist
+markup=pango
+#LABEL=
+#command=$SCRIPT_DIR/disk-io
+#command=$SCRIPT_DIR/disk-io -w 3 -M -P 0
+#instance=/^sda/
+#DT=5
+#MB_ONLY=0 #0 or 1
+#KB_ONLY=0 #0 or 1
+#WIDTH=4
+#MB_PRECISION=1
+#KB_PRECISION=0
+#REGEX=/^(s|h)d[a-zA-Z]+/
+#THRESHOLD=0
+#WARN_COLOR="#FF0000"
+#SEPARATOR=/
+#PREFIX=
+#SUFFIX="B/s"
 
 # Network interface monitoring
 #
