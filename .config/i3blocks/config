@@ -43,11 +43,17 @@ command=curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo
 interval=3600
 color=#A4C2F4
 
-# archupdate
-[arch-update -q]
+# checkupdates script
+[updates]
 interval=3600
-markup=pango
+color=#0ED839
 signal=2
+
+# archupdate
+#[arch-update -q]
+#interval=3600
+#markup=pango
+#signal=2
 #label=Updates: 
 #LABEL=Updates: # recent versions of i3blocks
 
