@@ -186,7 +186,8 @@ alias tsm='transmission-remote'
 alias yt="youtube-dl --add-metadata -i -o '%(upload_date)s-%(title)s.%(ext)s'"
 alias yta="yt -x -f bestaudio/best"
 alias face="zathura $HOME/honours/interfacing/LectureNotes_Interfacing1.pdf & disown"
-alias yays="yay && pkill -RTMIN+2 i3blocks"
+alias yays="yay && updated"
+alias yayd="yay && updated"
 alias updated="pkill -RTMIN+2 i3blocks"
 
 pdf2png () {
