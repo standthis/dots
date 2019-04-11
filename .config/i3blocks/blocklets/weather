@@ -1,18 +1,18 @@
 #!/bin/bash
 
+curl -Ss 'https://wttr.in?format=1' | sed 's/+//g'
+
 #weather=$(curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs)
 #weather=$(curl -Ss 'https://wttr.in/Grahamstown?format=1')
-
-weather=$(curl -Ss 'https://wttr.in?format=1' | sed 's/+//g')
-if [ ${#weather} -le 10 ]
-then
-    echo $weather
-else
-    echo err
-fi
+#weather=$(curl -Ss 'https://wttr.in?format=1' | sed 's/+//g')
+#echo $weather
+#if [ ${#weather} -le 10 ]
+#then
+#    echo $weather
+#else
+#    echo err
+#fi
 
 #if [[ $t1 == *"$t2"* ]]; then
 #		echo "$t1 and $t2 are equal"
 #fi
-
-

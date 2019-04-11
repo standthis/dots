@@ -255,17 +255,17 @@ pdfcompress ()
 
 # Base conversion with bc
 h2d () {
-    echo "ibase=16; obase=10; $@" | bc 
+    echo "ibase=16; $@" | bc 
 }
 
 d2h () {
-    echo "ibase=10; obase=16; $@" | bc 
+    echo "obase=16; $@" | bc 
 }
 
 d2b () {
-    echo "ibase=10; obase=16; $@" | bc 
+    echo "obase=2; $@" | bc 
 }
 
 b2d () {
-    echo "ibase=10; obase=16; $@" | bc 
+    echo "ibase=2; $@" | bc 
 }

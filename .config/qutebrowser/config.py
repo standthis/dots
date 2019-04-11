@@ -381,7 +381,7 @@ c.colors.tabs.selected.odd.fg = 'white'
 # Background color for webpages if unset (or empty to use the theme's
 # color).
 # Type: QtColor
-c.colors.webpage.bg = 'white'
+c.colors.webpage.bg = 'black'
 
 # Number of commands to save in the command history. 0: no history / -1:
 # unlimited
@@ -1409,6 +1409,7 @@ c.url.searchengines = {
         #'DEFAULT': 'https://www.google.com/search?q={}',
         #'DEFAULT': 'https://duckduckgo.com/?q={}',
         'DEFAULT': 'https://www.startpage.com/do/dsearch?query={}&cat=web&pl=opensearch',
+        #'DEFAULT': 'https://searx.me/?q={}',
         #'se': 'https://www.searchencrypt.com/search?eq={}',
         'se': 'https://www.searchencrypt.com/search?q={}',
         #'sp': 'https://startpage.com/do/asearch?q={}',
