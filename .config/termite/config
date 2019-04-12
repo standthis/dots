@@ -1,18 +1,9 @@
 [options]
-#font = Gohu Gohufont 11
-#font = Dina 10
-#font = Hermit 11
-#font = Envy Code R 11
-#font = Hack 11
-#font = Inconsolata-g 12
 font = Inconsolata-g 11
-#font = monospace 11
-#font = Inconsolata 12
 #font = Source Code Pro 11
-#font = Iosevka 12
-#font = Iosevka Term 12
-scrollback_lines = -1
-
+#font = Inconsolata 12
+scrollback_lines = 100000
+cursor_blink = off
 
 # Brewer.light
 [colors]

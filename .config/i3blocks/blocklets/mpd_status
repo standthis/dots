@@ -1,0 +1,10 @@
+playing=⏵
+paused=⏸
+stopped=◼
+
+status=$(mpc status | sed -n 's/^\[\([^])]*\)\].*$/\1/p')
+case $status in
+  playing) echo -n $playing ;;
+  paused)  echo -n $paused  ;;
+  *)       echo -n $stopped ;;
+esac
