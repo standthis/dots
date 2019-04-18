@@ -1,5 +1,11 @@
 #!/bin/bash
 
+if ! pgrep -x mpd > /dev/null
+then
+    sleep 10
+    exit
+fi
+
 if ! mpc status | egrep -q 'playing|paused'
 then 
     mpc idle player > /dev/null

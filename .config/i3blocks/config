@@ -63,7 +63,6 @@ signal=2
 # See the script for details.
 # MPV 
 [song]
-command=mpc current --wait
 interval=repeat
 color=#A54242
 separator=false
@@ -73,12 +72,12 @@ interval=repeat
 color=#A54242
 separator=false
 
-[volume]
+[vol]
 label=♪
-instance=Master
-interval=10
+interval=30
 signal=1
 color=#A54242
+#instance=Master
 
 [cpu_usage]
 label=CPU
