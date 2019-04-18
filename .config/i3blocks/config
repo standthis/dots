@@ -38,9 +38,9 @@ markup=none
 #color=#A54242
 
 # WEATHER 
-[weather]
-interval=3600
-color=#A4C2F4
+#[weather]
+#interval=3600
+#color=#A4C2F4
 
 # checkupdates script
 [updates]
@@ -67,7 +67,11 @@ command=mpc current --wait
 interval=repeat
 color=#A54242
 separator=false
-#command=echo $(mpc current) $(mpc status | grep -Eo '\(.+\)' | sed 's/^.//; s/.$//')
+
+[remaining]
+interval=repeat
+color=#A54242
+separator=false
 
 [volume]
 label=♪
@@ -109,7 +113,7 @@ color=#3182BD
 label=S
 instance=swap
 separator=false
-interval=30
+interval=3600
 #label=SWAP
 
 # Disk usage
