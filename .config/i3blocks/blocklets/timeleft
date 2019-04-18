@@ -1,0 +1,20 @@
+#!/bin/bash
+
+if ! mpc status | egrep -q 'playing|paused'
+then 
+    exit
+fi
+
+convertsecs() {
+ ((m=(${1})/60))
+ ((s=${1}%60))
+ printf "%02d:%02d" $m $s
+}
+
+ti=$(mpc status | egrep 'playing|paused' | awk -F ' ' '{print $3}')
+total=$(echo $ti | awk -F '/' '{print $2}' | awk -F: '{ print ($1 * 60) + $2 }')
+curr=$(echo $ti | awk -F '/' '{print $1}' | awk -F: '{ print ($1 * 60) + $2 }')
+left=$(awk "BEGIN {print $total - $curr}")
+
+convertsecs $left
+
