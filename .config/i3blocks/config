@@ -44,7 +44,7 @@ markup=none
 
 # checkupdates script
 [updates]
-interval=3600
+interval=14400
 color=#0ED839
 signal=2
 
@@ -159,11 +159,10 @@ markup=pango
 # If the instance is not specified, use the interface used for default route.
 # The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
 [mac]
-color=#3CB371
 interval=10
 separator=false
+color=#3CB371
 #instance=wlan0
-#command=mac
 
 [iface -4]
 color=#3CB371

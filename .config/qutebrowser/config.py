@@ -447,7 +447,7 @@ c.completion.web_history.max_items = -1
 #   - multiple-tabs: Show a confirmation if multiple tabs are opened.
 #   - downloads: Show a confirmation if downloads are running
 #   - never: Never show a confirmation.
-c.confirm_quit = ['never']
+c.confirm_quit = ['downloads']
 
 # Automatically start playing `<video>` elements. Note this option needs
 # a restart with QtWebEngine on Qt < 5.11.
@@ -1319,7 +1319,6 @@ c.tabs.select_on_remove = 'next'
 #   - multiple: Hide the tab bar if only one tab is open.
 #   - switching: Show the tab bar when switching tabs.
 c.tabs.show = 'never'
-#c.tabs.show = 'multiple'
 
 # Duration (in milliseconds) to show the tab bar before hiding it when
 # tabs.show is set to 'switching'.
