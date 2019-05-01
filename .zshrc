@@ -206,6 +206,10 @@ cl () {
    ccat $1 | less 
 }
 
+cln () {
+   ccat -n $1 | less 
+}
+
 setvol() {
     if [ "$1" -lt "20" ]
     then    
@@ -276,4 +280,12 @@ d2b () {
 
 b2d () {
     echo "ibase=2; $@" | bc 
+}
+
+b2h () {
+    echo "obase=16; ibase= 2; $@" | bc 
+}
+
+h2b () {
+    echo "ibase=16; obase=2; $@" | bc 
 }

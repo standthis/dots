@@ -8,6 +8,7 @@ settings:
     '*://duckduckgo.com/*': true
     '*://github.com/*': true
     '*://mail.protonmail.com/*': true
+    '*://northernelectronics.bandcamp.com/*': true
     '*://peekier.com/*': true
     '*://scholar.google.co.za/*': true
     '*://searx.me/*': true
