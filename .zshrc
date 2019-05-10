@@ -186,9 +186,14 @@ alias tsm='transmission-remote'
 alias yt="youtube-dl --verbose --add-metadata -i -o '%(upload_date)s-%(title)s.%(ext)s'"
 alias yta="yt -x -f bestaudio/best"
 alias face="zathura $HOME/honours/interfacing/LectureNotes_Interfacing1.pdf & disown"
+#alias mega="zathura $HOME/honours/interfacing/Mega16-datasheet.pdf & disown"
 alias yays="yay && updated"
 alias yayd="yay && updated"
 alias updated="pkill -RTMIN+2 i3blocks"
+
+7zp () {
+    7z a -p -mx=9 -mhe -t7z "$1.7z" "$1"
+}
 
 fdsk () {
    fd $@ | sk
@@ -200,6 +205,10 @@ rgsk () {
 
 pdf2png () {
 	pdftoppm "$1" "${1%.*}" -png
+}
+
+png2ppm () {
+    png2pnm -n "$1" > "${1%.*}.ppm"
 }
 
 cl () {

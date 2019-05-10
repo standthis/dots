@@ -5,3 +5,6 @@ opencv https://docs.opencv.org/4.0.1/d6/d00/tutorial_py_root.html
 malware https://github.com/rshipp/awesome-malware-analysis#malware-collection
 similar https://pysource.com/2018/07/20/detect-how-similar-two-images-are-with-opencv-and-python/
 cv file:///home/asc/doc/opencv-doc/index.html
+painless https://gist.github.com/braimee/bf570a62f53f71bad1906c6e072ce993
+pil https://pillow.readthedocs.io/en/stable/
+argparse https://docs.python.org/3/library/argparse.html

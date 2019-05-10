@@ -44,7 +44,7 @@ markup=none
 
 # checkupdates script
 [updates]
-interval=14400
+interval=3600
 color=#0ED839
 signal=2
 

@@ -71,7 +71,7 @@ message_delay_time= "1"
 
 # Progress Bar ..
 progressbar_color = "black"
-progressbar_elapsed_color = "green:b"
+progressbar_elapsed_color = "green"
 
 #Bar looks
 #progressbar_look = "───"
