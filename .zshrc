@@ -165,7 +165,6 @@ alias szsh='source $HOME/.zshrc'
 alias lap='ssh eets@laptop'
 alias dee='ssh dee@dee'
 alias i3c='vim $HOME/.config/i3/config'
-alias za='zathura'
 alias woman='man'
 alias pi='ssh pi@192.168.1.86'
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
@@ -190,6 +189,11 @@ alias face="zathura $HOME/honours/interfacing/LectureNotes_Interfacing1.pdf & di
 alias yays="yay && updated"
 alias yayd="yay && updated"
 alias updated="pkill -RTMIN+2 i3blocks"
+alias weather="curl -Ss 'https://wttr.in'"
+
+za () {
+    zathura "$1" & disown 
+}
 
 7zp () {
     7z a -p -mx=9 -mhe -t7z "$1.7z" "$1"
