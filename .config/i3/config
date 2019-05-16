@@ -51,7 +51,7 @@ bindsym $mod+Return exec st
 bindsym $mod+Shift+Return exec termite
 bindsym $mod+Shift+a exec alacritty
 bindsym $mod+a exec alacritty
-bindsym $mod+i exec st
+bindsym $mod+i exec kitty
 
 
 # kill focused window
@@ -90,7 +90,10 @@ bindsym $mod+Shift+comma exec mpc -q prev
 bindsym $mod+Shift+period exec mpc -q next
 
 # i3lock
-bindsym $mod+Shift+backslash exec i3lock -ef -c 060d13
+#bindsym $mod+Shift+backslash exec i3lock -ef -c 060d13
+#bindsym $mod+Shift+backslash exec i3lock -ef -c 070713
+bindsym $mod+Shift+backslash exec i3lock -ef -c 050608
+#bindsym $mod+Shift+backslash exec i3lock -ef -c 141214
 
 # change focus
 bindsym $mod+h focus left

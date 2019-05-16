@@ -4,6 +4,6 @@ count=$(checkupdates | wc -l)
 
 if [ "$count" != 0 ]
 then
-    echo updates $count
+    echo λ $count
 fi
 

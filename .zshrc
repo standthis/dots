@@ -129,21 +129,20 @@ alias eza='ssh eza@ezee'
 alias ls='ls -hN --color=auto --group-directories-first'
 #alias ls='ls -hN --color=auto'
 alias x='exa'
+alias xs='exa'
 alias xl='exa -lg'
 alias xa='exa -a'
 alias xla='exa -lag'
 alias xx='exa -lag'
 alias diff='diff --color=auto'
-alias mp='ncmpcpp -b $HOME/.ncmpcpp/ncmpcpp.bindings'
+#alias mp='ncmpcpp -b $HOME/.ncmpcpp/ncmpcpp.bindings'
 alias ccat='highlight --out-format=ansi'
 alias bk='cd $OLDPWD'
-alias coin='coinmon -t 5'
 alias c='cd'
 alias dotnet='TERM=xterm dotnet'
 alias blank='sleep 2; xset dpms force off'
 alias p='mpv $(xclip -selection cliboard -o)'
 alias clip='youtube-dl $(xclip -selection cliboard -o)'
-alias kvid='rm -vf *.mkv *.mp4'
 alias xc='xclip -selection clipboard'
 alias v='vim'
 alias tmuxn='tmux new -s'
@@ -190,6 +189,25 @@ alias yays="yay && updated"
 alias yayd="yay && updated"
 alias updated="pkill -RTMIN+2 i3blocks"
 alias weather="curl -Ss 'https://wttr.in'"
+
+bright () {
+    display=$(xrandr -q | grep ' connected' | head -n 1 | cut -d ' ' -f1)
+    if (( $(awk 'BEGIN {print ("'$1'" >= "'0.1'" && "'$1'" <= "'1'")}') )); then
+        xrandr --output "$display" --brightness "$1"
+    else
+        xrandr -q --verbose | grep Brightness | head -n1 | xargs | grep Brightness
+    fi
+}
+
+mp () {
+    if ! pgrep -x mpd > /dev/null
+    then
+        echo launching MPD
+        mpd
+        echo launched
+    fi
+    ncmpcpp -b $HOME/.ncmpcpp/ncmpcpp.bindings
+}
 
 za () {
     zathura "$1" & disown 
