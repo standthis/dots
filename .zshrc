@@ -134,6 +134,7 @@ alias xl='exa -lg'
 alias xa='exa -a'
 alias xla='exa -lag'
 alias xx='exa -lag'
+alias xxl='exa --color=always -lag | less'
 alias diff='diff --color=auto'
 #alias mp='ncmpcpp -b $HOME/.ncmpcpp/ncmpcpp.bindings'
 alias ccat='highlight --out-format=ansi'
@@ -170,7 +171,6 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias is='cd $HOME/honours/infosec'
 alias t='task'
 alias publicip='wget http://checkip.dyndns.org/ -O - -o /dev/null | cut -d: -f 2 | cut -d\< -f 1'
-alias f='fff'
 alias pub='dig +short myip.opendns.com @resolver1.opendns.com'
 alias publ='ssh -t dee@dee "cat .scripts/pub.ip"'
 alias libr='cd $HOME/honours/lib; ranger'
@@ -189,6 +189,25 @@ alias yays="yay && updated"
 alias yayd="yay && updated"
 alias updated="pkill -RTMIN+2 i3blocks"
 alias weather="curl -Ss 'https://wttr.in'"
+
+vf() { fzf | xargs -r -I % $EDITOR % ;}
+# nnn cd on quit
+export NNN_TMPFILE="/tmp/nnn"
+export NNN_USE_EDITOR=1    
+n()
+{
+        nnn "$@"
+
+        if [ -f $NNN_TMPFILE ]; then
+                . $NNN_TMPFILE
+                rm $NNN_TMPFILE
+        fi
+}
+
+f() {
+    fff "$@"
+    cd "$(cat "${XDG_CACHE_HOME:=${HOME}/.cache}/fff/.fff_d")"
+}
 
 bright () {
     display=$(xrandr -q | grep ' connected' | head -n 1 | cut -d ' ' -f1)

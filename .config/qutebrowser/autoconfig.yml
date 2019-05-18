@@ -4,17 +4,21 @@
 config_version: 2
 settings:
   content.javascript.enabled:
+    '*://about.gitlab.com/*': true
     '*://docs.opencv.org/*': true
     '*://duckduckgo.com/*': true
     '*://github.com/*': true
     '*://gitlab.com/*': true
+    '*://localhost/*': true
     '*://mail.protonmail.com/*': true
     '*://northernelectronics.bandcamp.com/*': true
     '*://peekier.com/*': true
     '*://scholar.google.co.za/*': true
     '*://searx.me/*': true
+    '*://searx.orcadian.net/*': true
     '*://soundcloud.com/*': true
     '*://www.discogs.com/*': true
+    '*://www.reddit.com/*': true
     '*://www.searchencrypt.com/*': false
     '*://www.startpage.com/*': true
   qt.force_software_rendering:
