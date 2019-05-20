@@ -190,6 +190,10 @@ alias yayd="yay && updated"
 alias updated="pkill -RTMIN+2 i3blocks"
 alias weather="curl -Ss 'https://wttr.in'"
 
+perf () {
+  curl -o /dev/null -s -w "%{time_connect} + %{time_starttransfer} = %{time_total}\n" "$1"
+}
+
 vf() { fzf | xargs -r -I % $EDITOR % ;}
 # nnn cd on quit
 export NNN_TMPFILE="/tmp/nnn"

@@ -8,3 +8,5 @@ cv file:///home/asc/doc/opencv-doc/index.html
 painless https://gist.github.com/braimee/bf570a62f53f71bad1906c6e072ce993
 pil https://pillow.readthedocs.io/en/stable/
 argparse https://docs.python.org/3/library/argparse.html
+scikit-cheatsheet https://www.datacamp.com/community/blog/scikit-learn-cheat-sheet
+svm-datacamp https://www.datacamp.com/community/tutorials/svm-classification-scikit-learn-python

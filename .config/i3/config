@@ -52,6 +52,7 @@ bindsym $mod+Shift+Return exec termite
 bindsym $mod+Shift+a exec alacritty
 bindsym $mod+a exec alacritty
 bindsym $mod+i exec kitty
+#bindsym $mod+z exec surf
 
 
 # kill focused window
@@ -68,7 +69,8 @@ bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+plus exec "amixer -q -M set Master 1%+ unmute && pkill -RTMIN+1 i3blocks"
 bindsym $mod+minus exec "amixer -q -M set Master 1%- unmute && pkill -RTMIN+1 i3blocks"
 bindsym $mod+Shift+equal exec "amixer -q set Master toggle && pkill -RTMIN+1 i3blocks"
-bindsym $mod+Shift+minus exec "amixer -q set Master toggle && pkill -RTMIN+1 i3blocks"
+bindsym $mod+Shift+minus exec "amixer -M sset Master 0% && pkill -RTMIN+1 i3blocks"
+#bindsym $mod+Shift+minus exec "amixer -q set Master toggle && pkill -RTMIN+1 i3blocks"
     
 # Start Applications
 
