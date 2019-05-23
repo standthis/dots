@@ -52,7 +52,7 @@ bindsym $mod+Shift+Return exec termite
 bindsym $mod+Shift+a exec alacritty
 bindsym $mod+a exec alacritty
 bindsym $mod+i exec kitty
-#bindsym $mod+z exec surf
+bindsym $mod+z exec surf
 
 
 # kill focused window
