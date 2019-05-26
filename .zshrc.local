@@ -1,0 +1,112 @@
+#git support
+autoload -U colors && colors
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' unstagedstr '!'
+zstyle ':vcs_info:*' stagedstr '+'
+zstyle ':vcs_info:git*' formats "%{${fg[cyan]}%}[%{${fg[blue]}%}%b%{${fg[yellow]}%}%m%u%c%{${fg[cyan]}%}]%{$reset_color%}"
+    
+
+# PYTHON ENV PROMPT
+source /usr/bin/virtualenvwrapper.sh
+function virtual_env_prompt () {
+	REPLY=${VIRTUAL_ENV+(${VIRTUAL_ENV:t}) }
+}
+grml_theme_add_token virtual-env -f virtual_env_prompt '%F{magenta}' '%f'
+
+# Prompt configuration
+zstyle ':prompt:grml:left:setup' items rc change-root path virtual-env vcs percent
+
+# ---------------------------------------------------------------------------------------------------
+#  ALIASES
+# ---------------------------------------------------------------------------------------------------
+
+alias x='exa'
+alias x='exa'
+alias xs='exa'
+alias xl='exa -lg'
+alias xa='exa -a'
+alias xla='exa -lag'
+alias xx='exa -lag'
+alias xxl='exa --color=always -lag | less'
+alias diff='diff --color=auto'
+alias ccat='highlight --out-format=ansi'
+alias c='cd'
+alias xc='xclip -selection clipboard'
+alias v='vim'
+alias gt='gotop -c monokai'
+alias sx='startx'
+alias qute='cd $HOME/.config/qutebrowser/'
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias t='task'
+alias ytv='youtube-viewer -C'
+alias ma='clear; mpv --no-video --term-osd-bar'
+alias vol='amixer -M get Master'
+alias tsm='transmission-remote'
+alias yt="youtube-dl --verbose --add-metadata -i -o '%(upload_date)s-%(title)s.%(ext)s'"
+alias yta="yt -x -f bestaudio/best"
+alias weather="curl -Ss 'https://wttr.in'"
+alias lock="slock"
+#alias lock="i3lock -ef -c 050608"
+alias p="mpc toggle"
+
+# GIT
+alias g='git'
+alias ga='git add'
+alias gcmsg='git commit -m'
+alias gl='git pull'
+alias gp='git push'
+alias gcl='git clone --recursive'
+alias gst='git status'
+
+# ---------------------------------------------------------------------------------------------------
+#  FUNCTIONS
+# ---------------------------------------------------------------------------------------------------
+
+mp () {
+    if ! pgrep -x mpd > /dev/null
+    then
+        echo 'launching mpd ...'
+        mpd
+        echo 'launched!'
+    fi
+    ncmpcpp -b $HOME/.ncmpcpp/ncmpcpp.bindings
+}
+
+za () {
+    zathura "$1" & disown 
+}
+
+7zp () {
+    7z a -p -mx=9 -mhe -t7z "$1.7z" "$1"
+}
+
+calc() { awk "BEGIN {print $*}"; }
+
+qwall() { 
+    ln -sf $(pwd)/$1 $HOME/.config/qutebrowser/startpage/pape
+}
+
+flac2mp3() {
+    for i in *.flac; do ffmpeg -i "$i" -ab 320k "${i%.*}.mp3"; done
+}
+
+setvol() {
+    if [ "$1" -lt "20" ]
+    then    
+        amixer -M sset 'Master' $1% #&& pkill -RTMIN+1 i3blocks
+    else 
+        echo gtfo | grep --color gtfo
+    fi
+}
+
+bright () {
+    display=$(xrandr -q | grep ' connected' | head -n 1 | cut -d ' ' -f1)
+    if (( $(awk 'BEGIN {print ("'$1'" >= "'0.1'" && "'$1'" <= "'1'")}') )); then
+        xrandr --output "$display" --brightness "$1"
+    else
+        xrandr -q --verbose | grep Brightness | head -n1 | xargs | grep Brightness
+    fi
+}
+
+vf() { fzf | xargs -r -I % $EDITOR % ;}
