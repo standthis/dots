@@ -8,9 +8,9 @@ ZSH=$HOME/.config/oh-my-zsh
 
 #ZSH_THEME
 if [[ -n $SSH_CONNECTION ]]; then
-  ZSH_THEME="erraku"
+    ZSH_THEME="erraku"
 else
-  ZSH_THEME="sunaku"
+    ZSH_THEME="sunaku"
 fi
 #ZSH_THEME="sunaku"
 #ZSH_THEME="simple"
@@ -28,15 +28,10 @@ plugins=(
 #  vi-mode
 )
 
-if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='vim'
-else
-    export EDITOR='vim'
-fi
 
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
-  mkdir $ZSH_CACHE_DIR
+    mkdir $ZSH_CACHE_DIR
 fi
 
 source $ZSH/oh-my-zsh.sh
@@ -60,7 +55,6 @@ alias c='cd'
 alias xc='xclip -selection clipboard'
 alias v='vim'
 alias gt='gotop -c monokai'
-alias sp='sudo pacman'
 alias sx='startx'
 alias qute='cd $HOME/.config/qutebrowser/'
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
@@ -73,7 +67,10 @@ alias tsm='transmission-remote'
 alias yt="youtube-dl --verbose --add-metadata -i -o '%(upload_date)s-%(title)s.%(ext)s'"
 alias yta="yt -x -f bestaudio/best"
 alias weather="curl -Ss 'https://wttr.in'"
-alias lock="i3lock -ef -c 050608"
+alias lock="slock"
+#alias lock="i3lock -ef -c 050608"
+alias p="mpc toggle"
+#alias p="mpc -q toggle"
 
 # -------------------------------------------------------------------------------------------------------
 #  FUNCTIONS
@@ -110,9 +107,9 @@ bright () {
 mp () {
     if ! pgrep -x mpd > /dev/null
     then
-        echo launching MPD
+        echo 'launching mpd ...'
         mpd
-        echo launched
+        echo 'launched!'
     fi
     ncmpcpp -b $HOME/.ncmpcpp/ncmpcpp.bindings
 }
@@ -129,10 +126,14 @@ cl () {
     ccat $1 | less 
 }
 
+cln () {
+    ccat -n $1 | less 
+}
+
 setvol() {
     if [ "$1" -lt "20" ]
     then    
-        amixer -M sset 'Master' $1% && pkill -RTMIN+1 i3blocks
+        amixer -M sset 'Master' $1% #&& pkill -RTMIN+1 i3blocks
     else 
         echo gtfo | grep --color gtfo
     fi
@@ -144,6 +145,10 @@ unzipown() {
 
 wav2mp3() {
     for i in *.wav; do ffmpeg -i "$i" -ab 320k "${i%.*}.mp3"; done
+}
+
+flac2mp3() {
+    for i in *.flac; do ffmpeg -i "$i" -ab 320k "${i%.*}.mp3"; done
 }
 
 flac24to16() {

@@ -1407,8 +1407,8 @@ c.url.open_base_url = False
 c.url.searchengines = {
         #'DEFAULT': 'https://www.google.com/search?q={}',
         #'DEFAULT': 'https://duckduckgo.com/?q={}',
-        #'DEFAULT': 'https://www.startpage.com/do/dsearch?query={}&cat=web&pl=opensearch',
-        'DEFAULT': 'http://localhost:32768/?q={}',
+        'DEFAULT': 'https://www.startpage.com/do/dsearch?query={}&cat=web&pl=opensearch',
+        #'DEFAULT': 'http://localhost:32768/?q={}',
         #'DEFAULT': 'https://searx.orcadian.net/?q={}',
         'sg': 'https://searx.org/?q={}',
         'sw': 'https://searx.world/?q={}',

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 unclutter & 
 setxkbmap -option caps:escape
 while xsetroot -name "`date +'%U %a %m.%d %H:%M'`"

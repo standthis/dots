@@ -11,6 +11,9 @@ https://www.archlinux.org/feeds/news/
 https://aur.archlinux.org/rss/
 https://bugs.archlinux.org/feed.php?feed_type=rss2&topic=edit&project=0
 http://blog.qutebrowser.org/feeds/all.atom.xml
+https://voidlinux.org/atom.xml
+https://github.com/void-linux/void-packages/commits/master.atom
+https://github.com/void-linux/xbps/commits/master.atom
 https://news.ycombinator.com/rss
 http://feeds.arstechnica.com/arstechnica/technology-lab
 http://feeds.arstechnica.com/arstechnica/security
@@ -19,6 +22,7 @@ https://lobste.rs/rss
 https://www.vulnhub.com/feeds/added/atom/
 https://security.gentoo.org/glsa/feed.atom
 https://www.reddit.com/r/unixporn.rss
+https://www.reddit.com/r/suckless
 https://www.reddit.com/r/vim.rss
 https://www.reddit.com/r/archlinux.rss
 https://www.reddit.com/r/qutebrowser.rss
