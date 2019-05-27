@@ -1,3 +1,6 @@
+# z directory navigation
+[[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh 
+
 #git support
 autoload -U colors && colors
 zstyle ':vcs_info:*' enable git
@@ -20,6 +23,7 @@ zstyle ':prompt:grml:left:setup' items rc change-root path virtual-env vcs perce
 # ---------------------------------------------------------------------------------------------------
 #  ALIASES
 # ---------------------------------------------------------------------------------------------------
+command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d" # Use neovim for vim if present.
 
 alias x='exa'
 alias x='exa'
@@ -33,7 +37,10 @@ alias diff='diff --color=auto'
 alias ccat='highlight --out-format=ansi'
 alias c='cd'
 alias xc='xclip -selection clipboard'
-alias v='vim'
+alias vim='$EDITOR'
+alias v='$EDITOR'
+alias vr='$EDITOR -R'
+alias nv='$EDITOR'
 alias gt='gotop -c monokai'
 alias sx='startx'
 alias qute='cd $HOME/.config/qutebrowser/'
@@ -47,8 +54,11 @@ alias yt="youtube-dl --verbose --add-metadata -i -o '%(upload_date)s-%(title)s.%
 alias yta="yt -x -f bestaudio/best"
 alias weather="curl -Ss 'https://wttr.in'"
 alias lock="slock"
-#alias lock="i3lock -ef -c 050608"
+alias slck="slock"
+alias lck="slock"
 alias p="mpc toggle"
+alias libr="cd ~/honours/lib && lf"
+alias cless="ccat $1 | less"
 
 # GIT
 alias g='git'
@@ -58,6 +68,7 @@ alias gl='git pull'
 alias gp='git push'
 alias gcl='git clone --recursive'
 alias gst='git status'
+alias rgc='rg --color=always'
 
 # ---------------------------------------------------------------------------------------------------
 #  FUNCTIONS
