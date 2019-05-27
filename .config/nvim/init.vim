@@ -1,5 +1,11 @@
 set number relativenumber
 
+" last-position-jump
+au BufReadPost *
+	\ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+	\ |   exe "normal! g`\""
+	\ | endif
+
 " Highlight line color
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 

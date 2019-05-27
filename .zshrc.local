@@ -1,6 +1,11 @@
 # z directory navigation
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh 
 
+# Edit line in vim 
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey "^X^E" edit-command-line
+
 #git support
 autoload -U colors && colors
 zstyle ':vcs_info:*' enable git
@@ -37,10 +42,7 @@ alias diff='diff --color=auto'
 alias ccat='highlight --out-format=ansi'
 alias c='cd'
 alias xc='xclip -selection clipboard'
-alias vim='$EDITOR'
 alias v='$EDITOR'
-alias vr='$EDITOR -R'
-alias nv='$EDITOR'
 alias gt='gotop -c monokai'
 alias sx='startx'
 alias qute='cd $HOME/.config/qutebrowser/'
