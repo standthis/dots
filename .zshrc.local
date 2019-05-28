@@ -1,3 +1,6 @@
+# fzf 
+[ -e ~/.fzf ] && source ~/.fzf/completion.zsh && source ~/.fzf/key-bindings.zsh
+
 # z directory navigation
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh 
 
@@ -30,6 +33,7 @@ zstyle ':prompt:grml:left:setup' items rc change-root path virtual-env vcs perce
 # ---------------------------------------------------------------------------------------------------
 command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d" # Use neovim for vim if present.
 
+alias zpac="pacman -Sl | cut -d' ' -f2 | fzf -m --preview 'pacman -Si {1}'"
 alias x='exa'
 alias x='exa'
 alias xs='exa'
