@@ -1,6 +1,18 @@
+# INTERNAL UTILITY FUNCTIONS {{{1
+_has() {
+  return $( whence $1 >/dev/null )
+}
+
 # fzf 
 [ -e ~/.fzf ] && source ~/.fzf/completion.zsh && source ~/.fzf/key-bindings.zsh
 
+# fd for fzf 
+if _has fd; then
+    export FZF_DEFAULT_COMMAND='fd --type f' 
+    #export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+    export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+fi
+        
 # z directory navigation
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh 
 
