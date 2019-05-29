@@ -3,7 +3,9 @@ _has() {
   return $( whence $1 >/dev/null )
 }
 
-# fzf 
+#################################
+### FZF 
+#################################
 [ -e ~/.fzf ] && source ~/.fzf/completion.zsh && source ~/.fzf/key-bindings.zsh
 
 # fd for fzf 
@@ -13,8 +15,29 @@ if _has fd; then
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 fi
         
-# z directory navigation
+# z directory navigation powered by fzf
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh 
+unalias z 2> /dev/null
+
+z() {
+  [ $# -gt 0 ] && _z "$*" && return
+  cd "$(_z -l 2>&1 | fzf --height 40% --nth 2.. --reverse --inline-info +s --tac --query "${*##-* }" | sed 's/^[0-9,.]* *//')"
+}
+
+# fzf mpc
+fmpc() {
+    local song_position
+    song_position=$(mpc -f "%position%) %artist% - %title%" playlist | \
+        fzf-tmux --query="$1" --reverse --select-1 --exit-0 | \
+        sed -n 's/^\([0-9]\+\)).*/\1/p') || return 1
+    [ -n "$song_position" ] && mpc -q play $song_position
+}
+
+export MANPATH=/usr/share/man
+man-find() {
+    f=$(fd . $MANPATH/man${1:-1} -t f -x echo {/.} | fzf) && man $f
+}
+#################################
 
 # Edit line in vim 
 autoload -U edit-command-line

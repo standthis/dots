@@ -25,3 +25,31 @@ hi VertSplit ctermfg=black ctermbg=NONE
 
 " Give :terminal Esc behavior
 tnoremap <Esc> <C-\><C-n>
+
+let mapleader = ","
+
+" minpac
+packadd minpac
+let s:plugins = exists('*minpac#init')
+if !s:plugins "{{{
+  fun! InstallPlug() " Bootstrap plugin manager on new systems.
+    exe '!git clone https://github.com/k-takata/minpac.git ~/.config/nvim/pack/minpac/opt/minpac'
+    " call minpac#update()
+  endfun
+else
+call minpac#init({'verbose': 3})
+" minpac must have {'type': 'opt'} so that it can be loaded with `packadd`.
+call minpac#add('k-takata/minpac', {'type': 'opt'})
+
+" Additional plugins here.
+"call minpac#add('junegunn/fzf', { 'do': 'yes n \| ./install' })
+call minpac#add('junegunn/fzf.vim')
+"let g:fzf_command_prefix = 'Fz'
+
+" minpac utility commands
+command! PackUpdate call minpac#update()
+command! PackClean call minpac#clean()
+command! PackStatus call minpac#status()
+
+endif
+
