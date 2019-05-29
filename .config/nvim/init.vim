@@ -1,5 +1,9 @@
+set expandtab shiftwidth=4 softtabstop=-1
 set number relativenumber
-set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
+set undofile
+set splitright
+"set ignorecase
+"set smartcase
 
 " last-position-jump
 au BufReadPost *
@@ -15,7 +19,6 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
-
 " Statusline and vertsplit highlight
 hi statusline term=NONE cterm=NONE gui=NONE ctermfg=grey ctermbg=NONE guifg=darkblue guibg=white
 hi statuslinenc term=NONE cterm=NONE gui=NONE ctermfg=grey ctermbg=NONE guifg=darkblue guibg=darkblue
@@ -52,4 +55,3 @@ command! PackClean call minpac#clean()
 command! PackStatus call minpac#status()
 
 endif
-
