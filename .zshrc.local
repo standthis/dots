@@ -1,24 +1,33 @@
-# INTERNAL UTILITY FUNCTIONS {{{1
+#             _              
+#     _______| |__  _ __ ___ 
+#    |_  / __| '_ \| '__/ __|
+#     / /\__ \ | | | | | (__ 
+#    /___|___/_| |_|_|  \___|
+#    
+                            
+# INTERNAL UTILITY FUNCTIONS 
 _has() {
   return $( whence $1 >/dev/null )
 }
 
-#################################
-### FZF 
-#################################
+# ---------------------------------------------------------------------------------------------------
+# FZF
+# ---------------------------------------------------------------------------------------------------
 [ -e ~/.fzf ] && source ~/.fzf/completion.zsh && source ~/.fzf/key-bindings.zsh
 
 # fd for fzf 
 if _has fd; then
-    export FZF_DEFAULT_COMMAND='fd --type f' 
+    #export FZF_DEFAULT_COMMAND='fd --type f' 
     #export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+    #export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+    export FZF_DEFAULT_COMMAND="fd --type file --color=always"
+    export FZF_DEFAULT_OPTS="--ansi"
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 fi
         
 # z directory navigation powered by fzf
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh 
 unalias z 2> /dev/null
-
 z() {
   [ $# -gt 0 ] && _z "$*" && return
   cd "$(_z -l 2>&1 | fzf --height 40% --nth 2.. --reverse --inline-info +s --tac --query "${*##-* }" | sed 's/^[0-9,.]* *//')"
@@ -37,7 +46,7 @@ export MANPATH=/usr/share/man
 man-find() {
     f=$(fd . $MANPATH/man${1:-1} -t f -x echo {/.} | fzf) && man $f
 }
-#################################
+# ---------------------------------------------------------------------------------------------------
 
 # Edit line in vim 
 autoload -U edit-command-line
@@ -162,3 +171,25 @@ bright () {
 }
 
 vf() { fzf | xargs -r -I % $EDITOR % ;}
+
+note () {
+  local notes_dir="$HOME/notes"
+  case "$1" in
+    c)
+      cd "$notes_dir"
+      ;;
+    l)
+      ls "$notes_dir"
+      ;;
+    p)
+      pushd "$notes_dir"
+      msg="Regenerated at $(date -u '+%Y-%m-%d %H:%M:%S')"
+      git add .
+      git commit -m "$msg"
+      git push origin master
+      popd
+      ;;
+    *)
+      vim "$notes_dir/$1"
+  esac
+}
