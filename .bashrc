@@ -9,7 +9,7 @@
 
 # HISTORY
 export HISTTIMEFORMAT="%h %d %H:%M:%S "
-PROMPT_COMMAND='history -a'
+export PROMPT_COMMAND='history -a'
 HISTSIZE= HISTFILESIZE= 
 shopt -s histappend
 shopt -s cmdhist
