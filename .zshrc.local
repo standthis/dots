@@ -87,6 +87,15 @@ zstyle ':prompt:grml:left:setup' items rc change-root path virtual-env vcs perce
 # ---------------------------------------------------------------------------------------------------
 #  ALIASES
 # ---------------------------------------------------------------------------------------------------
+# SKIM 
+#if _has sk && _has rg; then
+#    export SKIM_DEFAULT_COMMAND="rg --files || find ."
+#    alias skvi='f(){ x="$(sk --bind "ctrl-p:toggle-preview" --ansi --preview="preview.sh -v {}" --preview-window=up:50%:hidden)"; [[ $? -eq 0 ]] && vim "$x" || true }; f'
+#    alias rgvi='f(){ x="$(sk --bind "ctrl-p:toggle-preview" --ansi -i -c "rg --color=always --line-number \"{}\"" --preview="preview.sh -v {}" --preview-window=up:50%:hidden)"; [[ $? -eq 0 ]] && vim "$(echo $x|cut -d: -f1)" "+$(echo $x|cut -d: -f2)" || true }; f'
+#    alias skvim='f(){ x="$(sk --bind "ctrl-p:toggle-preview" --ansi --preview="preview.sh -v {}" --preview-window=up:50%:hidden)"; [[ $? -eq 0 ]] && gvim --remote-silent "$x" || true }; f'
+#    alias rgvim='f(){ x="$(sk --bind "ctrl-p:toggle-preview" --ansi -i -c "rg --color=always --line-number \"{}\"" --preview="preview.sh -v {}" --preview-window=up:50%:hidden)"; [[ $? -eq 0 ]] && gvim --remote-silent +":$(echo $x|cut -d: -f2)|" "$(echo $x|cut -d: -f1)" || true }; f'
+#fi
+
 command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d" # Use neovim for vim if present.
 
 alias zpac="pacman -Sl | cut -d' ' -f2 | fzf -m --preview 'pacman -Si {1}'"

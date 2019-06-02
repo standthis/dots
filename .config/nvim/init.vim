@@ -1,3 +1,6 @@
+" markdown file linewidth rule
+au BufRead,BufNewFile *.md setlocal textwidth=80
+
 set expandtab shiftwidth=4 softtabstop=-1
 set number relativenumber
 set undofile

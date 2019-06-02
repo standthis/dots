@@ -20,11 +20,12 @@ __git_ps1() { :;}
 if [ -e ~/.git-prompt.sh ]; then
     source ~/.git-prompt.sh
 fi
+
 nonzero_return() {
     RETVAL=$?
-    [ $RETVAL -ne 0 ] && echo "$RETVAL"
+    [ $RETVAL -ne 0 ] && echo "$RETVAL "
 }
 
-export PS1="\[\e[31m\]\`nonzero_return\`\[\e[m\] \[\e[1;37m\]\w\[\e[m\] \[\e[34m\]\`parse_git_branch\`\[\e[m\]\\$ "
+export PS1="\[\e[31m\]\`nonzero_return\`\[\e[m\]\[\e[1;37m\]\w\[\e[m\] \[\e[34m\]\`parse_git_branch\`\[\e[m\]\\$ "
 
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
