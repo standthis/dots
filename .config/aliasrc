@@ -1,6 +1,6 @@
 command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d" # Use neovim for vim if present.
 
-[[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh 
+[[ -r "/usr/share/z/z.sh" ]] && . /usr/share/z/z.sh 
 
 _has() {
   return $( command -v $1 >/dev/null )
@@ -17,6 +17,11 @@ if _has fd; then
     export FZF_DEFAULT_OPTS="--ansi"
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
     #export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
+    # JUNEGUNN
+    #export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview' --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort' --header 'Press CTRL-Y to copy command into clipboard' --border"
+    #export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+    #export FZF_ALT_C_COMMAND='fd --type d --hidden --follow --exclude .git'
+    #export FZF_CTRL_T_COMMAND='fd --type f --type d --hidden --follow --exclude .git'
 fi
 
 unalias z 2> /dev/null

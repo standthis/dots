@@ -5,7 +5,7 @@
 #    |_.__/ \__,_|___/_| |_|_|  \___|
 #                                    
 
-[ -e ~/.fzf ] && source ~/.fzf/completion.bash && source ~/.fzf/key-bindings.bash
+[ -e ~/.fzf ] && . ~/.fzf/completion.bash && . ~/.fzf/key-bindings.bash
 
 # Infinite history.
 HISTSIZE= HISTFILESIZE= 
@@ -18,7 +18,7 @@ shopt -s autocd
 
 __git_ps1() { :;}
 if [ -e ~/.git-prompt.sh ]; then
-    source ~/.git-prompt.sh
+    . ~/.git-prompt.sh
 fi
 
 nonzero_return() {
@@ -28,4 +28,4 @@ nonzero_return() {
 
 export PS1="\[\e[31m\]\`nonzero_return\`\[\e[m\]\[\e[1;37m\]\w\[\e[m\] \[\e[34m\]\`parse_git_branch\`\[\e[m\]\\$ "
 
-[ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
+[ -f "$HOME/.config/aliasrc" ] && . "$HOME/.config/aliasrc"
