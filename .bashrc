@@ -7,9 +7,11 @@
 
 [ -e ~/.fzf ] && . ~/.fzf/completion.bash && . ~/.fzf/key-bindings.bash
 
+[[ -r "/usr/share/z/z.sh" ]] && . /usr/share/z/z.sh 
+
 # HISTORY
 export HISTTIMEFORMAT="%h %d %H:%M:%S "
-export PROMPT_COMMAND='history -a'
+#export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}; history -a; history -c; history -r"
 HISTSIZE= HISTFILESIZE= 
 shopt -s histappend
 shopt -s cmdhist
