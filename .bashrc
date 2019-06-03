@@ -11,14 +11,13 @@
 
 # HISTORY
 #export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}; history -a; history -c; history -r"
-shopt -s cmdhist
 shopt -s histappend
 HISTCONTROL=ignoredups:erasedups
 HISTSIZE= HISTFILESIZE= 
-HISTTIMEFORMAT="%Y/%m/%d %H:%M:%S:   "
-#export HISTTIMEFORMAT="%h %d %H:%M:%S "
-#export PROMPT_COMMAND="history -n; history -w; history -c; history -r; $PROMPT_COMMAND"
-PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+HISTTIMEFORMAT="%Y/%m/%d %H:%M:%S:  "
+PROMPT_COMMAND="history -a; history -c; history -r; ${PROMPT_COMMAND}"
+
+shopt -s cmdhist
 
 # Disable ctrl-s and ctrl-q.
 stty -ixon

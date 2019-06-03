@@ -1,3 +1,9 @@
+"                           _           
+"     _ __   ___  _____   _(_)_ __ ___  
+"    | '_ \ / _ \/ _ \ \ / / | '_ ` _ \ 
+"    | | | |  __/ (_) \ V /| | | | | | |
+"    |_| |_|\___|\___/ \_/ |_|_| |_| |_|
+"                                       
 " markdown file linewidth rule
 au BufRead,BufNewFile *.md setlocal textwidth=80
 au BufNewFile,BufRead,BufReadPost aliasrc set syntax=sh
