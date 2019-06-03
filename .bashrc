@@ -10,11 +10,15 @@
 [[ -r "/usr/share/z/z.sh" ]] && . /usr/share/z/z.sh 
 
 # HISTORY
-export HISTTIMEFORMAT="%h %d %H:%M:%S "
 #export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}; history -a; history -c; history -r"
-HISTSIZE= HISTFILESIZE= 
-shopt -s histappend
 shopt -s cmdhist
+shopt -s histappend
+HISTCONTROL=ignoredups:erasedups
+HISTSIZE= HISTFILESIZE= 
+HISTTIMEFORMAT="%Y/%m/%d %H:%M:%S:   "
+#export HISTTIMEFORMAT="%h %d %H:%M:%S "
+#export PROMPT_COMMAND="history -n; history -w; history -c; history -r; $PROMPT_COMMAND"
+PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 # Disable ctrl-s and ctrl-q.
 stty -ixon
@@ -32,6 +36,6 @@ nonzero_return() {
     [ $RETVAL -ne 0 ] && echo "$RETVAL "
 }
 
-export PS1="\[\e[31m\]\`nonzero_return\`\[\e[m\]\[\e[1;37m\]\w\[\e[m\] \[\e[34m\]\`parse_git_branch\`\[\e[m\]\\$ "
+PS1="\[\e[31m\]\`nonzero_return\`\[\e[m\]\[\e[1;37m\]\w\[\e[m\] \[\e[34m\]\`parse_git_branch\`\[\e[m\]\\$ "
 
 [ -f "$HOME/.config/aliasrc" ] && . "$HOME/.config/aliasrc"

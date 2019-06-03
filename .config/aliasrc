@@ -1,6 +1,5 @@
 command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d" # Use neovim for vim if present.
 
-[[ -r "/usr/share/z/z.sh" ]] && . /usr/share/z/z.sh 
 
 _has() {
   return $( command -v $1 >/dev/null )
@@ -81,6 +80,7 @@ alias gt='gotop -c monokai'
 alias sx='startx'
 alias qute='cd $HOME/.config/qutebrowser/'
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias dots='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias t='task'
 alias ytv='youtube-viewer -C'
 alias ma='clear; mpv --no-video --term-osd-bar'
@@ -109,6 +109,8 @@ alias rgc='rg --color=always'
 # ---------------------------------------------------------------------------------------------------
 #  FUNCTIONS
 # ---------------------------------------------------------------------------------------------------
+
+mkcd() { mkdir -p "$1" && cd "$1"; } 
 
 mp () {
     if ! pgrep -x mpd > /dev/null

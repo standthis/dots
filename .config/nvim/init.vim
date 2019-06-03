@@ -1,5 +1,6 @@
 " markdown file linewidth rule
 au BufRead,BufNewFile *.md setlocal textwidth=80
+au BufNewFile,BufRead,BufReadPost aliasrc set syntax=sh
 
 set expandtab shiftwidth=4 softtabstop=-1
 set number relativenumber
