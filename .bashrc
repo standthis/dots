@@ -5,13 +5,16 @@
 #    |_.__/ \__,_|___/_| |_|_|  \___|
 #                                    
 
-[ -e ~/.fzf ] && . ~/.fzf/completion.bash && . ~/.fzf/key-bindings.bash
+[ -e ~/.config/fzf ] && . ~/.config/fzf/completion.bash && . ~/.config/fzf/key-bindings.bash
 
-[[ -r "/usr/share/z/z.sh" ]] && . /usr/share/z/z.sh 
+[ -r /usr/share/z/z.sh ] && . /usr/share/z/z.sh 
+
+[ -r /usr/share/bash-completion/bash_completion   ] && . /usr/share/bash-completion/bash_completion
 
 # HISTORY
 #export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}; history -a; history -c; history -r"
 shopt -s histappend
+PROMPT_DIRTRIM=4
 HISTCONTROL=ignoredups:erasedups
 HISTSIZE= HISTFILESIZE= 
 HISTTIMEFORMAT="%Y/%m/%d %H:%M:%S:  "
@@ -26,8 +29,8 @@ stty -ixon
 shopt -s autocd 
 
 __git_ps1() { :;}
-if [ -e ~/.git-prompt.sh ]; then
-    . ~/.git-prompt.sh
+if [ -e ~/.config/git-prompt.sh ]; then
+    . ~/.config/git-prompt.sh
 fi
 
 nonzero_return() {
@@ -35,6 +38,6 @@ nonzero_return() {
     [ $RETVAL -ne 0 ] && echo "$RETVAL "
 }
 
-PS1="\[\e[31m\]\`nonzero_return\`\[\e[m\]\[\e[1;37m\]\w\[\e[m\] \[\e[34m\]\`parse_git_branch\`\[\e[m\]\\$ "
+PS1="\[\e[31m\]\`nonzero_return\`\[\e[m\]\[\e[1;37m\]\w\[\e[m\] \[\e[34m\]\`__git_ps1\`\[\e[m\]\\$ "
 
 [ -f "$HOME/.config/aliasrc" ] && . "$HOME/.config/aliasrc"
