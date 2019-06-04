@@ -5,7 +5,8 @@
 "    |_| |_|\___|\___/ \_/ |_|_| |_| |_|
 "                                       
 " markdown file linewidth rule
-au BufRead,BufNewFile *.md setlocal textwidth=80
+au BufRead,BufNewFile *.md setlocal textwidth=80 spell complete+=kspell
+au BufRead,BufNewFile *.tex setlocal spell complete+=kspell
 au BufNewFile,BufRead,BufReadPost aliasrc set syntax=sh
 
 set expandtab shiftwidth=4 softtabstop=-1
