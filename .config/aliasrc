@@ -188,3 +188,7 @@ note () {
       vim "$notes_dir/$1"
   esac
 }
+
+unzipown() { 
+    for i in *.zip; do unzip "$i" -d "${i%%.zip}"; done
+}
