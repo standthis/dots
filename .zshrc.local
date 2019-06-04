@@ -13,7 +13,7 @@ _has() {
 # ---------------------------------------------------------------------------------------------------
 # FZF
 # ---------------------------------------------------------------------------------------------------
-[ -e ~/.fzf ] && source ~/.fzf/completion.zsh && source ~/.fzf/key-bindings.zsh
+[ -e ~/.config/fzf ] && source ~/.config/fzf/completion.zsh && source ~/.config/fzf/key-bindings.zsh
 
 # fd for fzf 
 if _has fd; then

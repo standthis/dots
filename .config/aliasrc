@@ -1,4 +1,9 @@
-
+#           _ _                    
+#      __ _| (_) __ _ ___ _ __ ___ 
+#     / _` | | |/ _` / __| '__/ __|
+#    | (_| | | | (_| \__ \ | | (__ 
+#     \__,_|_|_|\__,_|___/_|  \___|
+#                                  
 command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d" # Use neovim for vim if present.
 
 _has() {
@@ -62,9 +67,15 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias zpac="pacman -Sl | cut -d' ' -f2 | fzf -m --preview 'pacman -Si {1}'"
+alias za="zathura --fork"
 alias ls="ls -hN --color=auto --group-directories-first"
-alias x='exa'
-alias x='exa'
+alias la='ls -la'
+alias ll='ls -l'
+alias lh='ls -hAl'
+alias l='exa -l'
+alias grep="grep --color=auto"
+alias exa='exa --group-directories-first'
+alias x='exa -l'
 alias xs='exa'
 alias xl='exa -lg'
 alias xa='exa -a'
@@ -120,10 +131,6 @@ mp () {
         echo 'launched!'
     fi
     ncmpcpp -b $HOME/.ncmpcpp/ncmpcpp.bindings
-}
-
-za () {
-    zathura "$1" & disown 
 }
 
 7zp () {

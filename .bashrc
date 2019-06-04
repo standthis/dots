@@ -5,28 +5,10 @@
 #    |_.__/ \__,_|___/_| |_|_|  \___|
 #                                    
 
-[ -e ~/.config/fzf ] && . ~/.config/fzf/completion.bash && . ~/.config/fzf/key-bindings.bash
-
-[ -r /usr/share/z/z.sh ] && . /usr/share/z/z.sh 
-
-[ -r /usr/share/bash-completion/bash_completion   ] && . /usr/share/bash-completion/bash_completion
-
-# HISTORY
-#export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}; history -a; history -c; history -r"
-shopt -s histappend
-PROMPT_DIRTRIM=4
-HISTCONTROL=ignoredups:erasedups
-HISTSIZE= HISTFILESIZE= 
-HISTTIMEFORMAT="%Y/%m/%d %H:%M:%S:  "
-PROMPT_COMMAND="history -a; history -c; history -r; ${PROMPT_COMMAND}"
-
-shopt -s cmdhist
-
-# Disable ctrl-s and ctrl-q.
-stty -ixon
-
-#Allows you to cd into directory merely by typing the directory name.
-shopt -s autocd 
+# PROMPT
+ssh-ps1() {
+  [[ $SSH_CONNECTION ]] && printf "%s" "($HOSTNAME) "
+}
 
 __git_ps1() { :;}
 if [ -e ~/.config/git-prompt.sh ]; then
@@ -40,4 +22,31 @@ nonzero_return() {
 
 PS1="\[\e[31m\]\`nonzero_return\`\[\e[m\]\[\e[1;37m\]\w\[\e[m\] \[\e[34m\]\`__git_ps1\`\[\e[m\]\\$ "
 
+# SOURCE
+
+[ -e ~/.config/fzf ] && . ~/.config/fzf/completion.bash && . ~/.config/fzf/key-bindings.bash
+
+[ -r /usr/share/z/z.sh ] && . /usr/share/z/z.sh 
+
+[ -r /usr/share/bash-completion/bash_completion   ] && . /usr/share/bash-completion/bash_completion
+
 [ -f "$HOME/.config/aliasrc" ] && . "$HOME/.config/aliasrc"
+
+# HISTORY
+shopt -s histappend
+PROMPT_DIRTRIM=4
+HISTCONTROL=ignoredups:erasedups
+HISTSIZE= HISTFILESIZE= 
+HISTTIMEFORMAT="%Y/%m/%d %H:%M:%S:  "
+PROMPT_COMMAND="history -a;"
+#PROMPT_COMMAND="history -a; history -c; history -r; ${PROMPT_COMMAND}"
+#PROMPT_COMMAND="history -n; history -w; history -c; history -r; $PROMPT_COMMAND"
+
+shopt -s cmdhist
+
+# Disable ctrl-s and ctrl-q.
+stty -ixon
+
+#Allows you to cd into directory merely by typing the directory name.
+shopt -s autocd 
+
