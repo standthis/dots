@@ -2,5 +2,9 @@ set completion-ignore-case on
 set show-all-if-ambiguous on
 set colored-stats on
 set visible-stats on
+set completion-query-items 1000
 set page-completions off
-#set menu-complete-display-prefix on
+set show-all-if-unmodified on
+set menu-complete-display-prefix on
+"\t": menu-complete
+"\e[Z": menu-complete-backward

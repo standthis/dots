@@ -37,6 +37,7 @@ shopt -s histappend
 PROMPT_DIRTRIM=4
 HISTCONTROL=ignoredups:erasedups
 HISTSIZE= HISTFILESIZE= 
+HISTIGNORE='cd:ls:history:lf:x:xs:l'
 HISTTIMEFORMAT="%Y/%m/%d %H:%M:%S:  "
 PROMPT_COMMAND="history -a;"
 #PROMPT_COMMAND="history -a; history -c; history -r; ${PROMPT_COMMAND}"

@@ -8,6 +8,7 @@ export TERMINAL="st"
 export BROWSER="qutebrowser"
 export READER="zathura"
 export FILE="lf"
+export PAGER="less"
 
 # less/man colors
 export LESS=-R
