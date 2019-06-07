@@ -4,10 +4,16 @@
 "    | | | |  __/ (_) \ V /| | | | | | |
 "    |_| |_|\___|\___/ \_/ |_|_| |_| |_|
 "                                       
+"
+let mapleader = ","
+" Run current script
+nnoremap <leader>r :!%:p
+
 " markdown file linewidth rule
 au BufRead,BufNewFile *.md setlocal textwidth=80 spell complete+=kspell
 au BufRead,BufNewFile *.tex setlocal spell complete+=kspell
 au BufNewFile,BufRead,BufReadPost aliasrc set syntax=sh
+
 
 set expandtab shiftwidth=4 softtabstop=-1
 set number relativenumber
@@ -40,8 +46,6 @@ hi VertSplit ctermfg=black ctermbg=NONE
 " Give :terminal Esc behavior
 tnoremap <Esc> <C-\><C-n>
 
-let mapleader = ","
-
 " minpac
 packadd minpac
 let s:plugins = exists('*minpac#init')
@@ -58,6 +62,8 @@ call minpac#add('k-takata/minpac', {'type': 'opt'})
 " Additional plugins here.
 "call minpac#add('junegunn/fzf', { 'do': 'yes n \| ./install' })
 call minpac#add('junegunn/fzf.vim')
+call minpac#add('neoclide/coc.nvim', {'do': 'call coc#util#install()'})
+call minpac#add('fatih/vim-go')
 "let g:fzf_command_prefix = 'Fz'
 
 " minpac utility commands

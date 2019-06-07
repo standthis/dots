@@ -31,7 +31,7 @@ fi
 unalias z 2> /dev/null
 z() {
   [ $# -gt 0 ] && _z "$*" && return
-  cd "$(_z -l 2>&1 | fzf --height 40% --nth 2.. --reverse --inline-info +s --tac --query "${*##-* }" | sed 's/^[0-9,.]* *//')"
+  builtin cd "$(_z -l 2>&1 | fzf --height 40% --nth 2.. --reverse --inline-info +s --tac --query "${*##-* }" | sed 's/^[0-9,.]* *//')"
 }
 
 # fzf mpc
@@ -84,7 +84,7 @@ alias xx='exa -lag'
 alias xxl='exa --color=always -lag | less'
 alias diff='diff --color=auto'
 alias ccat='highlight --out-format=ansi'
-alias c='cd'
+#alias c='cd'
 alias xc='xclip -selection clipboard'
 alias v='$EDITOR'
 alias gt='gotop -c monokai'
@@ -121,14 +121,26 @@ alias rgc='rg --color=always'
 #  FUNCTIONS
 # ---------------------------------------------------------------------------------------------------
 
-mkcd() { mkdir -p "$1" && cd "$1"; } 
+cd () {
+    if [ "$#" -eq 1 ] && [ -f "$1" ] ; then
+        path=$(dirname "$1")
+        [ ! -e "$path" ] && return 1
+        printf '\e[32m%-6s\n\e[m' "$1 -> $path"
+        builtin cd "$path"
+    else 
+        builtin cd "$@"
+    fi
+}
+
+c () { [ "$#" -eq 1 ] && [ -f "$1" ] && ccat --force "$1" || builtin cd "$1" ; }
+
+mkcd() { mkdir -p "$1" && builtin cd "$1" ; } 
 
 mp () {
     if ! pgrep -x mpd > /dev/null
     then
-        echo 'launching mpd ...'
+        printf "launching mpd ...\n"
         mpd
-        echo 'launched!'
     fi
     ncmpcpp -b $HOME/.ncmpcpp/ncmpcpp.bindings
 }
@@ -171,7 +183,7 @@ note () {
   local notes_dir="$HOME/notes"
   case "$1" in
     c)
-      cd "$notes_dir"
+      builtin cd "$notes_dir"
       ;;
     l)
       ls "$notes_dir"

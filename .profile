@@ -5,7 +5,7 @@
 export PATH=$PATH:$HOME/.scripts
 export EDITOR="nvim"
 export TERMINAL="st"
-export BROWSER="qutebrowser"
+export BROWSER="firefox"
 export READER="zathura"
 export FILE="lf"
 export PAGER="less"

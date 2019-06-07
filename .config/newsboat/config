@@ -1,5 +1,5 @@
 datetime-format "%F" 
-browser "qutebrowser %u" 
+browser "firefox %u" 
 #html-renderer "w3m -dump -T text/html" 
 #color info white cyan bold
 #color listfocus white magenta bold
