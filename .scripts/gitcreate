@@ -1,4 +1,0 @@
-#!/bin/bash
-curl -u 'standthis' https://api.github.com/user/repos -d "{\"name\":\"$1\", \"private\": true}";
-git init;
-git remote add origin https://github.com/standthis/$1.git;
