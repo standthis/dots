@@ -2,8 +2,9 @@
 
 unclutter & 
 setxkbmap -option caps:escape
+mpd >/dev/null 2>&1 &
 
 while xsetroot -name "`date +'%U %a %m.%d %H:%M'`"
 do
-    sleep 5
+    sleep 10
 done &

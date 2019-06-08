@@ -3,7 +3,7 @@
     "0": { "type": "scroll.home" },
     ":": { "type": "command.show" },
     "o": { "type": "command.show.open", "alter": false },
-    "t": { "type": "command.show.open", "alter": true },
+    "t": { "type": "command.show.tabopen", "alter": true },
     "O": { "type": "command.show.tabopen", "alter": false },   
     "T": { "type": "command.show.tabopen", "alter": true },
     "w": { "type": "command.show.winopen", "alter": false },
