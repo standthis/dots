@@ -67,23 +67,27 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
-alias zpac="pacman -Sl | cut -d' ' -f2 | fzf -m --preview 'pacman -Si {1}'"
-alias za="zathura --fork"
+
 alias ls="ls -hN --color=auto --group-directories-first"
-alias la='ls -la'
+alias la='exa -la'
 alias ll='ls -l'
 alias lh='ls -hAl'
 alias l='exa -l'
-alias grep="grep --color=auto"
+
 alias exa='exa --group-directories-first'
 alias x='exa -l'
 alias xs='exa'
 alias xl='exa -lg'
-alias xa='exa -a'
+alias xa='exa -la'
 alias xla='exa -lag'
 alias xx='exa -lag'
 alias xxl='exa --color=always -lag | less'
+
+alias grep="grep --color=auto"
 alias diff='diff --color=auto'
+
+alias zpac="pacman -Sl | cut -d' ' -f2 | fzf -m --preview 'pacman -Si {1}'"
+alias za="zathura --fork"
 alias ccat='highlight --out-format=ansi'
 #alias c='cd'
 alias xc='xclip -selection clipboard'
@@ -101,13 +105,12 @@ alias tsm='transmission-remote'
 alias yt="youtube-dl --verbose --add-metadata -i -o '%(upload_date)s-%(title)s.%(ext)s'"
 alias yta="yt -x -f bestaudio/best"
 alias weather="curl -Ss 'https://wttr.in'"
-alias lock="slock"
-alias slck="slock"
 alias lck="slock"
 alias p="mpc toggle"
 alias libr="cd ~/honours/lib && lf"
 alias cless="ccat $1 | less"
 alias mp="ncmpcpp -b $HOME/.ncmpcpp/ncmpcpp.bindings"
+alias alsamixer="alsamixer -g"
 
 # GIT
 alias g='git'
@@ -162,7 +165,7 @@ flac2mp3() {
 }
 
 setvol() {
-    if [ "$1" -lt "20" ]
+    if [ "$1" -lt "30" ]
     then    
         amixer -M sset 'Master' $1% #&& pkill -RTMIN+1 i3blocks
     else 

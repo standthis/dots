@@ -5,6 +5,8 @@
 "    |_| |_|\___|\___/ \_/ |_|_| |_| |_|
 "                                       
 "
+" Supposed fix for coc.nvim docs
+"set completeopt=noinsert,noselect,menuone
 let mapleader = ","
 " Run current script
 nnoremap <leader>r :!%:p
@@ -12,7 +14,7 @@ nnoremap <leader>r :!%:p
 " markdown file linewidth rule
 au BufRead,BufNewFile *.md setlocal textwidth=80 spell complete+=kspell
 au BufRead,BufNewFile *.tex setlocal spell complete+=kspell
-au BufNewFile,BufRead,BufReadPost aliasrc set syntax=sh
+autocmd BufNewFile,BufReadPost aliasrc setlocal filetype=sh
 
 
 set expandtab shiftwidth=4 softtabstop=-1

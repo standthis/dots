@@ -32,14 +32,15 @@ PS1="\[\e[31m\]\`nonzero_return\`\[\e[m\]\[\e[1;37m\]\w\[\e[m\] \[\e[34m\]\`__gi
 
 [ -f "$HOME/.config/aliasrc" ] && . "$HOME/.config/aliasrc"
 
+
 # HISTORY
 shopt -s histappend
 PROMPT_DIRTRIM=4
 HISTCONTROL=ignoredups:erasedups
 HISTSIZE= HISTFILESIZE= 
-HISTIGNORE='cd:ls:history:lf:x:xs:l'
+HISTIGNORE='cd:ls:history:lf:x:xs:l:la:exa:xx'
 HISTTIMEFORMAT="%Y/%m/%d %H:%M:%S:  "
-PROMPT_COMMAND="history -a;"
+PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 #PROMPT_COMMAND="history -a; history -c; history -r; ${PROMPT_COMMAND}"
 #PROMPT_COMMAND="history -n; history -w; history -c; history -r; $PROMPT_COMMAND"
 
