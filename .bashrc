@@ -38,7 +38,7 @@ shopt -s histappend
 PROMPT_DIRTRIM=4
 HISTCONTROL=ignoredups:erasedups
 HISTSIZE= HISTFILESIZE= 
-HISTIGNORE='cd:ls:history:lf:x:xs:l:la:exa:xx'
+HISTIGNORE='cd:ls:history:lf:x:xs:l:la:exa:xx:newsboat*:vim:z:neofetch'
 HISTTIMEFORMAT="%Y/%m/%d %H:%M:%S:  "
 PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 #PROMPT_COMMAND="history -a; history -c; history -r; ${PROMPT_COMMAND}"
@@ -52,3 +52,5 @@ stty -ixon
 #Allows you to cd into directory merely by typing the directory name.
 shopt -s autocd 
 
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

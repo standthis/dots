@@ -14,19 +14,11 @@ _has() {
 # FZF
 # ---------------------------------------------------------------------------------------------------
 if _has fd; then
-    #export FZF_DEFAULT_COMMAND='fd --type f' 
-    #export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
     export FZF_DEFAULT_COMMAND='fd --color=always --type f --hidden --follow --exclude .git'
-    #export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-    #export FZF_DEFAULT_COMMAND="fd --type file --color=always"
-    export FZF_DEFAULT_OPTS="--ansi"
+    export FZF_ALT_C_COMMAND='fd --type d --hidden --follow --exclude .git'
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-    #export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
-    # JUNEGUNN
-    #export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview' --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort' --header 'Press CTRL-Y to copy command into clipboard' --border"
-    #export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
-    #export FZF_ALT_C_COMMAND='fd --type d --hidden --follow --exclude .git'
-    #export FZF_CTRL_T_COMMAND='fd --type f --type d --hidden --follow --exclude .git'
+    export FZF_DEFAULT_OPTS="--ansi"
+    export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 fi
 
 unalias z 2> /dev/null
@@ -125,6 +117,11 @@ alias rgc='rg --color=always'
 # ---------------------------------------------------------------------------------------------------
 #  FUNCTIONS
 # ---------------------------------------------------------------------------------------------------
+
+..cd () {
+    cd ..
+    cd "$@"
+}
 
 cd () {
     if [ "$#" -eq 1 ] && [ -f "$1" ] ; then

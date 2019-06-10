@@ -12,8 +12,8 @@ let mapleader = ","
 nnoremap <leader>r :!%:p
 
 " markdown file linewidth rule
-au BufRead,BufNewFile *.md setlocal textwidth=80 spell complete+=kspell
-au BufRead,BufNewFile *.tex setlocal spell complete+=kspell
+au BufRead,BufNewFile *.md setlocal textwidth=80 spell spelllang=en_us complete+=kspell
+au BufRead,BufNewFile *.tex setlocal spell spelllang=en_us complete+=kspell
 autocmd BufNewFile,BufReadPost aliasrc setlocal filetype=sh
 
 
@@ -64,8 +64,8 @@ call minpac#add('k-takata/minpac', {'type': 'opt'})
 " Additional plugins here.
 "call minpac#add('junegunn/fzf', { 'do': 'yes n \| ./install' })
 call minpac#add('junegunn/fzf.vim')
-call minpac#add('neoclide/coc.nvim', {'do': 'call coc#util#install()'})
-call minpac#add('fatih/vim-go')
+"call minpac#add('neoclide/coc.nvim', {'do': 'call coc#util#install()'})
+"call minpac#add('fatih/vim-go')
 "let g:fzf_command_prefix = 'Fz'
 
 " minpac utility commands

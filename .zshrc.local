@@ -4,60 +4,17 @@
 #     / /\__ \ | | | | | (__ 
 #    /___|___/_| |_|_|  \___|
 #    
-                            
-# INTERNAL UTILITY FUNCTIONS 
-_has() {
-  return $( whence $1 >/dev/null )
-}
 
 # ---------------------------------------------------------------------------------------------------
-# FZF
+# source
 # ---------------------------------------------------------------------------------------------------
+
 [ -e ~/.config/fzf ] && source ~/.config/fzf/completion.zsh && source ~/.config/fzf/key-bindings.zsh
 
-# fd for fzf 
-if _has fd; then
-    #export FZF_DEFAULT_COMMAND='fd --type f' 
-    #export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
-    #export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-    export FZF_DEFAULT_COMMAND="fd --type file --color=always"
-    export FZF_DEFAULT_OPTS="--ansi"
-    export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-    #export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
-fi
-        
-# z directory navigation powered by fzf
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh 
-unalias z 2> /dev/null
-z() {
-  [ $# -gt 0 ] && _z "$*" && return
-  cd "$(_z -l 2>&1 | fzf --height 40% --nth 2.. --reverse --inline-info +s --tac --query "${*##-* }" | sed 's/^[0-9,.]* *//')"
-}
 
-# fzf mpc
-fmpc() {
-    local song_position
-    song_position=$(mpc -f "%position%) %artist% - %title%" playlist | \
-        fzf-tmux --query="$1" --reverse --select-1 --exit-0 | \
-        sed -n 's/^\([0-9]\+\)).*/\1/p') || return 1
-    [ -n "$song_position" ] && mpc -q play $song_position
-}
+[ -f ~/.config/aliasrc ] && source ~/.config/aliasrc
 
-pfzf() {
-    fzf --preview '[[ $(file --mime {}) =~ binary ]] &&
-                     echo {} is a binary file ||
-                     (bat --style=numbers --color=always {} ||
-                      highlight -O ansi -l {} ||
-                      coderay {} ||
-                      rougify {} ||
-                      cat {}) 2> /dev/null | head -500'
-}
-
-
-export MANPATH=/usr/share/man
-man-find() {
-    f=$(fd . $MANPATH/man${1:-1} -t f -x echo {/.} | fzf) && man $f
-}
 # ---------------------------------------------------------------------------------------------------
 
 # Edit line in vim 
@@ -83,134 +40,3 @@ grml_theme_add_token virtual-env -f virtual_env_prompt '%F{magenta}' '%f'
 
 # Prompt configuration
 zstyle ':prompt:grml:left:setup' items rc change-root path virtual-env vcs percent
-
-# ---------------------------------------------------------------------------------------------------
-#  ALIASES
-# ---------------------------------------------------------------------------------------------------
-# SKIM 
-#if _has sk && _has rg; then
-#    export SKIM_DEFAULT_COMMAND="rg --files || find ."
-#    alias skvi='f(){ x="$(sk --bind "ctrl-p:toggle-preview" --ansi --preview="preview.sh -v {}" --preview-window=up:50%:hidden)"; [[ $? -eq 0 ]] && vim "$x" || true }; f'
-#    alias rgvi='f(){ x="$(sk --bind "ctrl-p:toggle-preview" --ansi -i -c "rg --color=always --line-number \"{}\"" --preview="preview.sh -v {}" --preview-window=up:50%:hidden)"; [[ $? -eq 0 ]] && vim "$(echo $x|cut -d: -f1)" "+$(echo $x|cut -d: -f2)" || true }; f'
-#    alias skvim='f(){ x="$(sk --bind "ctrl-p:toggle-preview" --ansi --preview="preview.sh -v {}" --preview-window=up:50%:hidden)"; [[ $? -eq 0 ]] && gvim --remote-silent "$x" || true }; f'
-#    alias rgvim='f(){ x="$(sk --bind "ctrl-p:toggle-preview" --ansi -i -c "rg --color=always --line-number \"{}\"" --preview="preview.sh -v {}" --preview-window=up:50%:hidden)"; [[ $? -eq 0 ]] && gvim --remote-silent +":$(echo $x|cut -d: -f2)|" "$(echo $x|cut -d: -f1)" || true }; f'
-#fi
-
-command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d" # Use neovim for vim if present.
-
-alias zpac="pacman -Sl | cut -d' ' -f2 | fzf -m --preview 'pacman -Si {1}'"
-alias x='exa'
-alias x='exa'
-alias xs='exa'
-alias xl='exa -lg'
-alias xa='exa -a'
-alias xla='exa -lag'
-alias xx='exa -lag'
-alias xxl='exa --color=always -lag | less'
-alias diff='diff --color=auto'
-alias ccat='highlight --out-format=ansi'
-alias c='cd'
-alias xc='xclip -selection clipboard'
-alias v='$EDITOR'
-alias gt='gotop -c monokai'
-alias sx='startx'
-alias qute='cd $HOME/.config/qutebrowser/'
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-alias t='task'
-alias ytv='youtube-viewer -C'
-alias ma='clear; mpv --no-video --term-osd-bar'
-alias vol='amixer -M get Master'
-alias tsm='transmission-remote'
-alias yt="youtube-dl --verbose --add-metadata -i -o '%(upload_date)s-%(title)s.%(ext)s'"
-alias yta="yt -x -f bestaudio/best"
-alias weather="curl -Ss 'https://wttr.in'"
-alias lock="slock"
-alias slck="slock"
-alias lck="slock"
-alias p="mpc toggle"
-alias libr="cd ~/honours/lib && lf"
-alias cless="ccat $1 | less"
-
-# GIT
-alias g='git'
-alias ga='git add'
-alias gcmsg='git commit -m'
-alias gl='git pull'
-alias gp='git push'
-alias gcl='git clone --recursive'
-alias gst='git status'
-alias rgc='rg --color=always'
-
-# ---------------------------------------------------------------------------------------------------
-#  FUNCTIONS
-# ---------------------------------------------------------------------------------------------------
-
-mp () {
-    if ! pgrep -x mpd > /dev/null
-    then
-        echo 'launching mpd ...'
-        mpd
-        echo 'launched!'
-    fi
-    ncmpcpp -b $HOME/.ncmpcpp/ncmpcpp.bindings
-}
-
-za () {
-    zathura "$1" & disown 
-}
-
-7zp () {
-    7z a -p -mx=9 -mhe -t7z "$1.7z" "$1"
-}
-
-calc() { awk "BEGIN {print $*}"; }
-
-qwall() { 
-    ln -sf $(pwd)/$1 $HOME/.config/qutebrowser/startpage/pape
-}
-
-flac2mp3() {
-    for i in *.flac; do ffmpeg -i "$i" -ab 320k "${i%.*}.mp3"; done
-}
-
-setvol() {
-    if [ "$1" -lt "20" ]
-    then    
-        amixer -M sset 'Master' $1% #&& pkill -RTMIN+1 i3blocks
-    else 
-        echo gtfo | grep --color gtfo
-    fi
-}
-
-bright () {
-    display=$(xrandr -q | grep ' connected' | head -n 1 | cut -d ' ' -f1)
-    if (( $(awk 'BEGIN {print ("'$1'" >= "'0.1'" && "'$1'" <= "'1'")}') )); then
-        xrandr --output "$display" --brightness "$1"
-    else
-        xrandr -q --verbose | grep Brightness | head -n1 | xargs | grep Brightness
-    fi
-}
-
-vf() { fzf | xargs -r -I % $EDITOR % ;}
-
-note () {
-  local notes_dir="$HOME/notes"
-  case "$1" in
-    c)
-      cd "$notes_dir"
-      ;;
-    l)
-      ls "$notes_dir"
-      ;;
-    p)
-      pushd "$notes_dir"
-      msg="Regenerated at $(date -u '+%Y-%m-%d %H:%M:%S')"
-      git add .
-      git commit -m "$msg"
-      git push origin master
-      popd
-      ;;
-    *)
-      vim "$notes_dir/$1"
-  esac
-}
