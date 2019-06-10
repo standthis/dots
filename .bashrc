@@ -51,6 +51,3 @@ stty -ixon
 
 #Allows you to cd into directory merely by typing the directory name.
 shopt -s autocd 
-
-
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
