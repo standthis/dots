@@ -8,8 +8,13 @@
 " Supposed fix for coc.nvim docs
 "set completeopt=noinsert,noselect,menuone
 let mapleader = ","
+"map <SPACE> <Nop>
+"let mapleader = " "
+nmap <SPACE> ,
 " Run current script
 nnoremap <leader>r :!%:p
+nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>f :FZF<CR>
 
 " markdown file linewidth rule
 au BufRead,BufNewFile *.md setlocal textwidth=80 spell spelllang=en_us complete+=kspell

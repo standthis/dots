@@ -70,6 +70,7 @@
       "d": "https://duckduckgo.com/?q={}",
       "sx": "https://searx.orcadian.net/?q={}",
       "s": "https://searx.orcadian.net/?q={}",
+      "x": "http://localhost:32768/?q={}",
       "aw": "https://wiki.archlinux.org/index.php?title=Special%3ASearch&search={}",
       "dis": "https://www.discogs.com/search/?q={}&type=all",
       "q": "https://www.qwant.com/?q={}&t=web",

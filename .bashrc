@@ -35,19 +35,18 @@ PS1="\[\e[31m\]\`nonzero_return\`\[\e[m\]\[\e[1;37m\]\w\[\e[m\] \[\e[34m\]\`__gi
 
 # HISTORY
 shopt -s histappend
-PROMPT_DIRTRIM=4
+PROMPT_DIRTRIM=3
 HISTCONTROL=ignoredups:erasedups
 HISTSIZE= HISTFILESIZE= 
-HISTIGNORE='cd:ls:history:lf:x:xs:l:la:exa:xx:newsboat*:vim:z:neofetch'
+HISTIGNORE='cd:ls:history:lf:x:xs:l:la:exa:xx:newsboat*:vim:z:neofetch:..:mp:gt:redshift*'
 HISTTIMEFORMAT="%Y/%m/%d %H:%M:%S:  "
 PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 #PROMPT_COMMAND="history -a; history -c; history -r; ${PROMPT_COMMAND}"
 #PROMPT_COMMAND="history -n; history -w; history -c; history -r; $PROMPT_COMMAND"
 
-shopt -s cmdhist
+shopt -s cmdhist autocd dirspell cdspell extglob
 
 # Disable ctrl-s and ctrl-q.
 stty -ixon
 
-#Allows you to cd into directory merely by typing the directory name.
-shopt -s autocd 
+#set -o notify

@@ -1,3 +1,4 @@
+set skip-completed-text on
 set completion-ignore-case on
 set show-all-if-ambiguous on
 set colored-stats on
@@ -8,3 +9,11 @@ set show-all-if-unmodified on
 set menu-complete-display-prefix on
 "\t": menu-complete
 "\e[Z": menu-complete-backward
+##set bell-style none
+#
+#
+# Useful stuff for UTF-8
+#set meta-flag on
+#set input-meta on
+#set output-meta on
+#set convert-meta off

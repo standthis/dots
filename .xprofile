@@ -1,8 +1,8 @@
 #!/bin/sh
 
-unclutter & 
 setxkbmap -option caps:escape
-mpd >/dev/null 2>&1 &
+command -v unclutter >/dev/null 2>&1 && unclutter & 
+command -v mpd >/dev/null 2>&1 && mpd >/dev/null 2>&1 &
 
 while xsetroot -name "`date +'%U %a %m.%d %H:%M'`"
 do

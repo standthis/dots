@@ -4,11 +4,13 @@
 #    | (_| | | | (_| \__ \ | | (__ 
 #     \__,_|_|_|\__,_|___/_|  \___|
 #                                  
-command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d" # Use neovim for vim if present.
 
 _has() {
-  return $( command -v $1 >/dev/null )
+  return $( command -v $1 >/dev/null 2>&1 )
 }
+
+# Use neovim for vim if present.
+_has nvim && alias vim="nvim" vimdiff="nvim -d" 
 
 # ---------------------------------------------------------------------------------------------------
 # FZF
@@ -21,6 +23,7 @@ if _has fd; then
     export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 fi
 
+# Z intergration with FZF
 unalias z 2> /dev/null
 z() {
   [ $# -gt 0 ] && _z "$*" && return
@@ -77,6 +80,8 @@ alias xxl='exa --color=always -lag | less'
 
 alias grep="grep --color=auto"
 alias diff='diff --color=auto'
+
+alias sbrc='source ~/.bashrc'
 
 alias zpac="pacman -Sl | cut -d' ' -f2 | fzf -m --preview 'pacman -Si {1}'"
 alias za="zathura --fork"
@@ -205,4 +210,31 @@ note () {
 
 unzipown() { 
     for i in *.zip; do unzip "$i" -d "${i%%.zip}"; done
+}
+
+histdel(){
+    [ $# -ne 2 ] && echo start and end parameters && return 1
+    for h in $(seq $1 $2 | tac); do
+        history -d $h
+    done
+    history -d $(history 1 | awk '{print $1}')
+}
+histdeln(){
+  # Get the current history number
+  n=$(history 1 | awk '{print $1}')
+
+  # Call histdel with the appropriate range
+  histdel $(( $n - $1 )) $(( $n - 1 ))
+  }
+
+sleepUntil() {
+    local slp tzoff now quiet=false
+    [ "$1" = "-q" ] && shift && quiet=true
+    local hms=(${1//:/ })
+    printf -v now '%(%s)T' -1
+    printf -v tzoff '%(%z)T\n' $now
+    tzoff=$((0${tzoff:0:1}(3600*${tzoff:1:2}+60*${tzoff:3:2})))
+    slp=$(((86400+(now-now%86400)+10#$hms*3600+10#${hms[1]}*60+${hms[2]}-tzoff-now)%86400))
+    $quiet || printf 'sleep %ss, -> %(%c)T\n' $slp $((now+slp))
+    sleep $slp
 }
