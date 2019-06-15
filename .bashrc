@@ -7,7 +7,7 @@
 
 # PROMPT
 ssh-ps1() {
-  [[ $SSH_CONNECTION ]] && printf "%s" "($HOSTNAME) "
+    printf "%s" "$HOSTNAME "
 }
 
 __git_ps1() { :;}
@@ -20,7 +20,11 @@ nonzero_return() {
     [ $RETVAL -ne 0 ] && echo "$RETVAL "
 }
 
-PS1="\[\e[31m\]\`nonzero_return\`\[\e[m\]\[\e[1;37m\]\w\[\e[m\] \[\e[34m\]\`__git_ps1\`\[\e[m\]\\$ "
+if [[ $SSH_CONNECTION ]]; then 
+    PS1="\[\e[32m\]\`ssh-ps1\`\[\e[m\]\[\e[32m\]\`nonzero_return\`\[\e[m\]\[\e[1;37m\]\w\[\e[m\] \[\e[34m\]\`__git_ps1\`\[\e[m\]\\$ "
+else
+    PS1="\[\e[31m\]\`nonzero_return\`\[\e[m\]\[\e[1;37m\]\w\[\e[m\] \[\e[34m\]\`__git_ps1\`\[\e[m\]\\$ "
+fi
 
 # SOURCE
 
@@ -38,7 +42,7 @@ shopt -s histappend
 PROMPT_DIRTRIM=3
 HISTCONTROL=ignoredups:erasedups
 HISTSIZE= HISTFILESIZE= 
-HISTIGNORE='cd:ls:history:lf:x:xs:l:la:exa:xx:newsboat*:vim:z:neofetch:..:mp:gt:redshift*'
+HISTIGNORE='cd:ls:history:lf:x:xs:l:la:exa:xx:newsboat*:vim:z:neofetch:..:mp:gt:redshift*:calcurse'
 HISTTIMEFORMAT="%Y/%m/%d %H:%M:%S:  "
 PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 #PROMPT_COMMAND="history -a; history -c; history -r; ${PROMPT_COMMAND}"

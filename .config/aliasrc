@@ -238,3 +238,7 @@ sleepUntil() {
     $quiet || printf 'sleep %ss, -> %(%c)T\n' $slp $((now+slp))
     sleep $slp
 }
+
+transfer() {
+    curl --upload-file "$1" "https://transfer.sh/$1"
+}
