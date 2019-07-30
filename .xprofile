@@ -3,8 +3,4 @@
 setxkbmap -option caps:escape
 command -v unclutter >/dev/null 2>&1 && unclutter & 
 command -v mpd >/dev/null 2>&1 && mpd >/dev/null 2>&1 &
-
-while xsetroot -name "`date +'%U %a %m.%d %H:%M'`"
-do
-    sleep 10
-done &
+dwmstatus & 

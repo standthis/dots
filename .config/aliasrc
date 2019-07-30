@@ -64,10 +64,10 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
 alias ls="ls -hN --color=auto --group-directories-first"
-alias la='exa -la'
+alias la='ls -la'
 alias ll='ls -l'
 alias lh='ls -hAl'
-alias l='exa -l'
+alias l='ls -l'
 
 alias exa='exa --group-directories-first'
 alias x='exa -l'
@@ -97,7 +97,7 @@ alias dots='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias t='task'
 alias ytv='youtube-viewer -C'
 alias ma='clear; mpv --no-video --term-osd-bar'
-alias vol='amixer -M get Master'
+alias vol="amixer -M get Master | awk -F'[][]' '{print \$2}' | tail -1 | grep -E '[0-9]|%'"
 alias tsm='transmission-remote'
 alias yt="youtube-dl --verbose --add-metadata -i -o '%(upload_date)s-%(title)s.%(ext)s'"
 alias yta="yt -x -f bestaudio/best"
@@ -129,7 +129,7 @@ alias rgc='rg --color=always'
 }
 
 cd () {
-    if [ "$#" -eq 1 ] && [ -f "$1" ] ; then
+    if [ $# -eq 1 ] && [ -f "$1" ] ; then
         path=$(dirname "$1")
         [ ! -e "$path" ] && return 1
         printf '\e[32m%-6s\n\e[m' "$1 -> $path"
@@ -139,7 +139,7 @@ cd () {
     fi
 }
 
-c () { [ "$#" -eq 1 ] && [ -f "$1" ] && ccat --force "$1" || builtin cd "$1" ; }
+c () { [ $# -eq 1 ] && [ -f "$1" ] && ccat --force "$1" || builtin cd "$1" ; }
 
 mkcd() { mkdir -p "$1" && builtin cd "$1" ; } 
 
@@ -167,9 +167,10 @@ flac2mp3() {
 }
 
 setvol() {
-    if [ "$1" -lt "30" ]
-    then    
-        amixer -M sset 'Master' $1% #&& pkill -RTMIN+1 i3blocks
+    [ $# -ne 1 ] && return 1
+    if [ "$1" -lt "30" ]; then    
+        #amixer -M sset 'Master' $1% #&& pkill -RTMIN+1 i3blocks
+        amixer -M sset 'Master' $1%  | awk -F'[][]' '{print $2}' | tail -1 | grep -E '[0-9]|%'
     else 
         echo gtfo | grep --color gtfo
     fi

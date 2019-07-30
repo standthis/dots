@@ -339,3 +339,4 @@ x-scheme-handler/https=surf.desktop;chromium.desktop;firefox.desktop;qutebrowser
 x-scheme-handler/magnet=transmission-qt.desktop;
 x-scheme-handler/qute=qutebrowser.desktop;
 x-scheme-handler/vnd.libreoffice.cmis=libreoffice-startcenter.desktop;
+x-scheme-handler/sgnl=signal-desktop.desktop

@@ -15,6 +15,8 @@ nmap <SPACE> ,
 nnoremap <leader>r :!%:p
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>f :FZF<CR>
+nnoremap <leader>; @:
+nnoremap <leader>m :!make<CR>
 
 " markdown file linewidth rule
 au BufRead,BufNewFile *.md setlocal textwidth=80 spell spelllang=en_us complete+=kspell
