@@ -54,3 +54,6 @@ shopt -s cmdhist autocd dirspell cdspell extglob
 stty -ixon
 
 #set -o notify
+ppp () { ls -la; }
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

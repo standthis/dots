@@ -1,3 +1,8 @@
 map [normal] b focus_inputbar ":blist "
 map [normal] v focus_inputbar ":bmark "
 map [normal] x focus_inputbar ":bdelete "
+
+set recolor-lightcolor          "#f2e5bc"
+set recolor-darkcolor           "#3c3836"
+
+set recolor                     "true"

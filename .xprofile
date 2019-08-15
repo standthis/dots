@@ -1,6 +1,12 @@
 #!/bin/sh
 
 setxkbmap -option caps:escape
-command -v unclutter >/dev/null 2>&1 && unclutter & 
-command -v mpd >/dev/null 2>&1 && mpd >/dev/null 2>&1 &
-dwmstatus & 
+for bin in unclutter mpd clipmenud dwmstatus prompter
+do
+    command -v $bin >/dev/null 2>&1 && $bin & 
+done
+
+#command -v unclutter >/dev/null 2>&1 && unclutter & 
+#command -v mpd >/dev/null 2>&1 && mpd >/dev/null 2>&1 &
+#command -v clipmenud >/dev/null 2>&1 && clipmenud >/dev/null 2>&1 &
+#command -v dwmstatus >/dev/null 2>&1 && dwmstatus >/dev/null 2>&1 &

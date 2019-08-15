@@ -9,6 +9,10 @@ export BROWSER="firefox"
 export READER="zathura"
 export FILE="lf"
 export PAGER="less"
+export WORK_START_HOUR="6"
+export WORK_END_HOUR="20"
+export WORK_START_DAY="1"
+export WORK_END_DAY="7"
 
 # less/man colors
 export LESS=-R
