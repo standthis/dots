@@ -26,10 +26,10 @@ bind-key k up
 bind-key l open
 
 # Colors
-color background          white   black 
-color listnormal          white   black dim
-color listfocus           white  black   bold
-color listnormal_unread   white black  
-color listfocus_unread    white black   bold
-color info                black  black  bold
-color article             white   black 
+#color background          white   black 
+#color listnormal          white   black dim
+#color listfocus           white  black   bold
+#color listnormal_unread   white black  
+#color listfocus_unread    white black   bold
+#color info                black  black  bold
+#color article             white   black 
