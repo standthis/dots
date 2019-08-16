@@ -5,18 +5,18 @@ static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Source Code Pro:size=10", "monospace:size=10" };
+static const char *fonts[]          = { "Source Code Pro:size=10", };
 static const char dmenufont[]       = "Source Code Pro:size=10";
-static const char col_gray1[]       = "#111111";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_black[]       = "#000000";
-static const char col_cyan[]        = "#006791";
+static const char normbordercolor[] = "#1d2021"; // #282828
+static const char normbgcolor[]     = "#1d2021";
+static const char normfgcolor[]     = "#f9f5d7";
+static const char selbordercolor[]  = "#076678";
+static const char selbgcolor[]      = "#076678";
+static const char selfgcolor[]      = "#f9f5d7";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_black, col_gray1 },
-	[SchemeSel]  = { col_cyan, col_black,  col_black  },
+	[SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
+	[SchemeSel] =  { selbgcolor,  normbgcolor,  normbordercolor },
 };
 
 /* tagging */
@@ -35,7 +35,7 @@ static const Rule rules[] = {
 /* layout(s) */
 static const float mfact     = 0.50; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
+static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -57,14 +57,15 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_black, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *mpdmenu_library[]  = { "mpdmenu", "-l", "::", "-i", "-l", "20", "-fn", dmenufont, "-nb", col_black, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *mpdmenu_playlist[] = { "mpdmenu", "-p", "::", "-i", "-l", "20", "-fn", dmenufont, "-nb", col_black, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *mpdmenu_addplaylist[]  = { "mpdmenu", "-a", "::", "-i", "-l", "20", "-fn", dmenufont, "-nb", col_black, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *clipmenu[] = { "clipmenu", "-i", "-fn", dmenufont, "-nb", col_black, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *passmenu[] = { "passmenu", "-i", "-fn", dmenufont, "-nb", col_black, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selfgcolor, "-sf", selbordercolor, NULL };
+static const char *mpdmenu_library[]  = { "mpdmenu", "-l", "::", "-i", "-l", "20", "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selfgcolor, "-sf", selbordercolor, NULL };
+static const char *mpdmenu_playlist[] = { "mpdmenu", "-p", "::", "-i", "-l", "20", "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selfgcolor, "-sf", selbordercolor, NULL };
+static const char *mpdmenu_addplaylist[]  = { "mpdmenu", "-a", "::", "-i", "-l", "20", "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selfgcolor, "-sf", selbordercolor, NULL };
+static const char *clipmenu[] = { "clipmenu", "-i", "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selfgcolor, "-sf", selbordercolor, NULL };
+static const char *passmenu[] = { "passmenu", "-i", "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selfgcolor, "-sf", selbordercolor, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *slock[]  = { "slock", NULL };
+static const char *alacritty[]  = { "alacritty", NULL };
 static const char *signaldesktop[]  = { "signal-desktop", NULL };
 static const char *soulseek[]  = { "soulseekqt", NULL };
 static const char *browser[]  = { "firefox", NULL };
@@ -80,6 +81,7 @@ static const char *mpdprev[]  = { "mpc", "-q", "prev", NULL };
 static Key keys[] = {
 	/* modifier                     key            function        argument */
 	{ MODKEY,                       XK_p,          spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_a,          spawn,          {.v = alacritty } },
 	{ MODKEY,                       XK_Return,     spawn,          {.v = termcmd } },
         { MODKEY,                       XK_backslash,  spawn,          {.v = browser } },
         { MODKEY|ControlMask,           XK_backslash,  spawn,          {.v = browserp } },
