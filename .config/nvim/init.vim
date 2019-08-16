@@ -7,6 +7,7 @@
 "
 " Supposed fix for coc.nvim docs
 "set completeopt=noinsert,noselect,menuone
+colo gruvbox
 let mapleader = ","
 "map <SPACE> <Nop>
 "let mapleader = " "
