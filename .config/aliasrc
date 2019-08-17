@@ -108,6 +108,7 @@ alias libr="cd ~/honours/lib && lf"
 alias cless="ccat $1 | less"
 alias mp="ncmpcpp -b $HOME/.ncmpcpp/ncmpcpp.bindings"
 alias alsamixer="alsamixer -g"
+alias nb="newsboat -r"
 
 # GIT
 alias g='git'
