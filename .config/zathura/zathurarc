@@ -1,8 +1,10 @@
 set default-bg                  "#282828"
 set default-fg                  "#504945"
 
-set statusbar-fg                "#bdae93"
-set statusbar-bg                "#504945"
+#set statusbar-fg                "#bdae93"
+#set statusbar-bg                "#504945"
+set statusbar-bg                "#282828"
+set statusbar-fg                "#ebdbb2"
 
 set inputbar-bg                 "#282828"
 set inputbar-fg                 "#7c6f54"
@@ -39,4 +41,15 @@ set recolor-keephue             "true"
 map [normal] b focus_inputbar ":blist "
 map [normal] v focus_inputbar ":bmark "
 map [normal] x focus_inputbar ":bdelete "
+set adjust-open width
+set pages-per-row 1
+#set smooth-scroll true
+set selection-clipboard clipboard
+set incremental-search true
+set guioptions ""
+
+set window-title-home-tilde true
+set window-title-basename true
+set statusbar-home-tilde true
+set show-hidden true
 
