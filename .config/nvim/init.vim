@@ -63,6 +63,7 @@ call minpac#add('k-takata/minpac', {'type': 'opt'})
 " Additional plugins here.
 "call minpac#add('junegunn/fzf', { 'do': 'yes n \| ./install' })
 call minpac#add('junegunn/fzf.vim')
+call minpac#add('neoclide/coc.nvim', { 'rev': '*', 'do': { -> pack#coc_install() } })
 "call minpac#add('neoclide/coc.nvim', {'do': 'call coc#util#install()'})
 "call minpac#add('fatih/vim-go')
 "let g:fzf_command_prefix = 'Fz'
