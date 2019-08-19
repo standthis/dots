@@ -29,11 +29,11 @@ set notification-fg             "#282828"
 
 set recolor-lightcolor          "#282828"
 set recolor-darkcolor           "#ebdbb2"
-set recolor                     "true"
 
 # setting recolor-keep true will keep any color your pdf has.
 # if it is false, it'll just be black and white
 set recolor-keephue             "true"
+set recolor                     "true"
 
 # Rest of your configs go here:
 
@@ -41,6 +41,7 @@ set recolor-keephue             "true"
 map [normal] b focus_inputbar ":blist "
 map [normal] v focus_inputbar ":bmark "
 map [normal] x focus_inputbar ":bdelete "
+
 set adjust-open width
 set pages-per-row 1
 #set smooth-scroll true

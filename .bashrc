@@ -5,6 +5,11 @@
 #    |_.__/ \__,_|___/_| |_|_|  \___|
 #                                    
 
+# https://github.com/joukewitteveen/xlogin
+#for sd_cmd in systemctl systemd-analyze systemd-run; do
+#    alias $sd_cmd='DBUS_SESSION_BUS_ADDRESS="unix:path=$XDG_RUNTIME_DIR/bus" '$sd_cmd
+#done
+
 # PROMPT
 ssh-ps1() {
     printf "%s" "$HOSTNAME "
@@ -56,4 +61,3 @@ stty -ixon
 #set -o notify
 ppp () { ls -la; }
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
