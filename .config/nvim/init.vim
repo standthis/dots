@@ -41,7 +41,10 @@ set number relativenumber
 set undofile
 set splitright
 set ignorecase
+set incsearch
 set smartcase
+"set cursorcolumn
+"set cursorline
 
 
 " Easy pane naviation 
