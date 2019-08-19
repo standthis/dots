@@ -18,11 +18,20 @@ nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>f :FZF<CR>
 nnoremap <leader>; @:
 nnoremap <leader>m :!make<CR>
+nnoremap <Leader>w :w<CR>
 
 " markdown file linewidth rule
-au BufRead,BufNewFile *.md setlocal textwidth=80 spell spelllang=en_us complete+=kspell
-au BufRead,BufNewFile *.tex setlocal spell spelllang=en_us complete+=kspell
-autocmd BufNewFile,BufReadPost aliasrc setlocal filetype=sh
+augroup filetype_settings
+  " Clear this autocmd group so that the settings won't get loaded over and
+  " over again
+  autocmd!
+
+  au BufRead,BufNewFile *.md setlocal textwidth=80 spell spelllang=en_us complete+=kspell
+  au BufRead,BufNewFile *.tex setlocal spell spelllang=en_us complete+=kspell
+  autocmd BufNewFile,BufReadPost aliasrc setlocal filetype=sh
+  autocmd FileType make setlocal noexpandtab
+
+augroup END
 
 
 set expandtab shiftwidth=4 softtabstop=-1
