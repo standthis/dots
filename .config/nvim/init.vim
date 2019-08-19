@@ -43,8 +43,8 @@ set splitright
 set ignorecase
 set incsearch
 set smartcase
-"set cursorcolumn
-"set cursorline
+set cursorcolumn
+set cursorline
 
 
 " Easy pane naviation 
