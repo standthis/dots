@@ -30,6 +30,8 @@ augroup filetype_settings
   au BufRead,BufNewFile *.tex setlocal spell spelllang=en_us complete+=kspell
   autocmd BufNewFile,BufReadPost aliasrc setlocal filetype=sh
   autocmd FileType make setlocal noexpandtab
+  " Jump to the last position when reopening a file (except Git commit)
+  autocmd BufReadPost * if @% !~# '\.git[\/\\]COMMIT_EDITMSG$' && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
 augroup END
 
@@ -38,14 +40,9 @@ set expandtab shiftwidth=4 softtabstop=-1
 set number relativenumber
 set undofile
 set splitright
-"set ignorecase
-"set smartcase
+set ignorecase
+set smartcase
 
-" last-position-jump
-au BufReadPost *
-	\ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit'
-	\ |   exe "normal! g`\""
-	\ | endif
 
 " Easy pane naviation 
 map <C-j> <C-W>j
