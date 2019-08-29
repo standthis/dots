@@ -15,6 +15,10 @@ https://lobste.rs/rss
 https://www.debian.org/News/news
 https://security.gentoo.org/glsa/feed.atom
 https://news.ycombinator.com/rss
+https://nvd.nist.gov/feeds/xml/cve/misc/nvd-rss.xml
+https://nvd.nist.gov/feeds/xml/cve/misc/nvd-rss-analyzed.xml
+http://www.securityfocus.com/rss/vulnerabilities.xml
+http://www.securityfocus.com/rss/news.xml
 
 https://carbonite.co.za/index.php?forums/laptop.32/index.rss
 http://feeds.feedburner.com/nodatatv
