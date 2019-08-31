@@ -5,7 +5,8 @@ xrdb -merge ~/.Xresources
 
 command -v xwallpaper >/dev/null 2>&1 && xwallpaper --zoom ~/images/stars.jpg &
 
-for bin in unclutter mpd clipmenud dwmstatus prompter
+for bin in unclutter mpd clipmenud 
 do
     command -v $bin >/dev/null 2>&1 && $bin & 
 done
+
