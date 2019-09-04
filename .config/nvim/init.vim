@@ -30,18 +30,21 @@ augroup filetype_settings
   au BufRead,BufNewFile *.tex setlocal spell spelllang=en_us complete+=kspell
   autocmd BufNewFile,BufReadPost aliasrc setlocal filetype=sh
   autocmd FileType make setlocal noexpandtab
+  " No numbers in term
+  au TermOpen * setlocal nonumber norelativenumber
   " Jump to the last position when reopening a file (except Git commit)
   autocmd BufReadPost * if @% !~# '\.git[\/\\]COMMIT_EDITMSG$' && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
 augroup END
 
 
+set inccommand=nosplit
 set expandtab shiftwidth=4 softtabstop=-1
 set number relativenumber
+set incsearch
 set undofile
 set splitright
 set ignorecase
-set incsearch
 set smartcase
 set cursorcolumn
 set cursorline

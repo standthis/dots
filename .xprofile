@@ -3,7 +3,7 @@
 setxkbmap -option caps:escape
 xrdb -merge ~/.Xresources
 
-command -v xwallpaper >/dev/null 2>&1 && xwallpaper --zoom ~/images/stars.jpg &
+command -v xwallpaper >/dev/null 2>&1 && xwallpaper --zoom ~/images/1565382505333.jpg & 
 
 for bin in unclutter mpd clipmenud 
 do

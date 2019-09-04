@@ -84,6 +84,11 @@ set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
 set undofile
 set splitright
 set number relativenumber
+set incsearch
+set ignorecase
+set smartcase
+set cursorcolumn
+set cursorline
 
 augroup numbertoggle
   autocmd!
