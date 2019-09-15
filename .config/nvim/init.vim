@@ -19,6 +19,7 @@ nnoremap <leader>f :FZF<CR>
 nnoremap <leader>; @:
 nnoremap <leader>m :!make<CR>
 nnoremap <Leader>w :w<CR>
+nnoremap <Leader>g :!go run %:p<CR>
 
 " markdown file linewidth rule
 augroup filetype_settings

@@ -89,7 +89,7 @@ alias ccat='highlight --out-format=ansi'
 #alias c='cd'
 alias xc="tr -d '\n' |  xclip -selection clipboard"
 alias v='$EDITOR'
-alias gt='gotop -c monokai'
+alias gt='gotop'
 alias qute='cd $HOME/.config/qutebrowser/'
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias dots='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
@@ -108,6 +108,9 @@ alias cless="ccat $1 | less"
 alias mp="ncmpcpp -b $HOME/.ncmpcpp/ncmpcpp.bindings"
 alias alsamixer="alsamixer -g"
 alias nb="newsboat -r"
+alias n='nnn'
+alias r='ranger'
+alias d='docker'
 
 # GIT
 alias g='git'
@@ -153,8 +156,14 @@ qwall() {
     ln -sf $(pwd)/$1 $HOME/.config/qutebrowser/startpage/pape
 }
 
-flac2mp3() {
-    for i in *.flac; do ffmpeg -vsync 2 -i "$i" -ab 320k "${i%.*}.mp3"; done
+lossless2mp3() {
+    for i in *.flac *.wav; do 
+        ffmpeg -vsync 2 -i "$i" -ab 320k "${i%.*}.mp3"
+    done
+}
+
+myt() {
+    mpv "ytdl://ytsearch:$1"
 }
 
 setvol() {
