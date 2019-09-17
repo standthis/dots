@@ -10,7 +10,7 @@ _has() {
 }
 
 # Use neovim for vim if present.
-_has nvim && alias vim="nvim" vimdiff="nvim -d" 
+#_has nvim && alias vim="nvim" vimdiff="nvim -d" 
 
 # ---------------------------------------------------------------------------------------------------
 # FZF
@@ -102,7 +102,6 @@ alias yt="youtube-dl --verbose --add-metadata -i -o '%(upload_date)s_%(uploader)
 alias yta="yt -x -f bestaudio/best"
 alias weather="curl -Ss 'https://wttr.in'"
 alias lck="slock"
-alias p="mpc toggle"
 alias libr="cd ~/honours/lib && lf"
 alias cless="ccat $1 | less"
 alias mp="ncmpcpp -b $HOME/.ncmpcpp/ncmpcpp.bindings"
@@ -111,6 +110,8 @@ alias nb="newsboat -r"
 alias n='nnn'
 alias r='ranger'
 alias d='docker'
+alias s='systemctl'
+alias p="pacman"
 
 # GIT
 alias g='git'

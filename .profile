@@ -3,7 +3,7 @@
 
 # Adds `~/.scripts` and all subdirectories to $PATH
 export PATH=$PATH:$HOME/bin/
-export EDITOR="nvim"
+export EDITOR="vim"
 export TERMINAL="st"
 export BROWSER="firefox"
 export READER="zathura"
@@ -32,7 +32,7 @@ sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:\
 *.rar=38;5;205:*.rpm=38;5;173:*.deb=38;5;173:*.dmg=38;5;173:*.jpg=38;5;141:\
 *.jpeg=38;5;147:*.png=38;5;147:*.mpg=38;5;151:*.avi=38;5;151:*.mov=38;5;216:\
 *.webm=38;5;215:*.wmv=38;5;216:*.mp4=38;5;217:*.mkv=38;5;216:*.flac=38;5;223:\
-*.mp3=38;5;218:*akefile=38;5;176:*.pdf=38;5;253:*.ods=38;5;224:*.odt=38;5;146:\
+*.mp3=38;5;218:*akefile=38;5;176:*.pdf=38;5;253:*.csv=38;5;255:*.ods=38;5;224:*.odt=38;5;146:\
 *.tex=38;5;225:*.doc=38;5;224:*.xls=38;5;146:*.docx=38;5;224:*.xlsx=38;5;146:\
 *.epub=38;5;152:*.mobi=38;5;105:*.m4b=38;5;222:*.conf=38;5;121:\
 *.md=38;5;224:*.markdown=38;5;224:*.ico=38;5;140:*.iso=38;5;205:\

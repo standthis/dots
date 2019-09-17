@@ -11,12 +11,14 @@ let mapleader = ","
 "let mapleader = " "
 nmap <SPACE> ,
 " Run current script
-nnoremap <leader>r :!%:p
+nnoremap <leader>r :!%:p<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>f :FZF<CR>
 nnoremap <leader>; @:
 nnoremap <leader>m :!make<CR>
 nnoremap <leader>g :!git add -u && git commit -m "lit update" && git push origin master<CR>
+nnoremap <leader>e :!go run %:p<CR>
+nnoremap <leader>R :Rg<CR>
 
 " markdown file linewidth rule
 augroup filetype_settings

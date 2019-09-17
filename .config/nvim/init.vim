@@ -13,13 +13,15 @@ let mapleader = ","
 "let mapleader = " "
 nmap <SPACE> ,
 " Run current script
+
 nnoremap <leader>r :!%:p
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>f :FZF<CR>
 nnoremap <leader>; @:
 nnoremap <leader>m :!make<CR>
-nnoremap <Leader>w :w<CR>
-nnoremap <Leader>g :!go run %:p<CR>
+nnoremap <leader>g :!git add -u && git commit -m "lit update" && git push origin master<CR>
+nnoremap <leader>e :!go run %:p<CR>
+nnoremap <leader>R :Rg<CR>
 
 " markdown file linewidth rule
 augroup filetype_settings
@@ -76,6 +78,7 @@ call minpac#add('k-takata/minpac', {'type': 'opt'})
 " Additional plugins here.
 "call minpac#add('junegunn/fzf', { 'do': 'yes n \| ./install' })
 call minpac#add('junegunn/fzf.vim')
+call minpac#add('fatih/vim-go') ", { 'do': ':GoInstallBinaries', 'type': 'opt' })
 call minpac#add('neoclide/coc.nvim', { 'rev': '*', 'do': { -> pack#coc_install() } })
 "call minpac#add('neoclide/coc.nvim', {'do': 'call coc#util#install()'})
 "call minpac#add('fatih/vim-go')
