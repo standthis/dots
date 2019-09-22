@@ -11,7 +11,10 @@ let mapleader = ","
 "let mapleader = " "
 nmap <SPACE> ,
 " Run current script
-nnoremap <leader>r :!%:p<CR>
+noremap <C-q> :confirm qall<CR>
+nnoremap <leader>x :!chmod +x %:p<CR>
+nnoremap <leader>s :!%:p<CR>
+nnoremap <leader>r :!rake<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>f :FZF<CR>
 nnoremap <leader>; @:
@@ -19,6 +22,9 @@ nnoremap <leader>m :!make<CR>
 nnoremap <leader>g :!git add -u && git commit -m "lit update" && git push origin master<CR>
 nnoremap <leader>e :!go run %:p<CR>
 nnoremap <leader>R :Rg<CR>
+nnoremap <Leader>p :bp<CR>
+nnoremap <Leader>n :bn<CR>
+nnoremap <Leader>w :w<CR>
 
 " markdown file linewidth rule
 augroup filetype_settings
@@ -92,6 +98,7 @@ set ignorecase
 set smartcase
 set cursorcolumn
 set cursorline
+set pastetoggle=<F2>
 
 augroup numbertoggle
   autocmd!
@@ -124,6 +131,8 @@ call minpac#add('k-takata/minpac', {'type': 'opt'})
 " Additional plugins here.
 "call minpac#add('junegunn/fzf', { 'do': 'yes n \| ./install' })
 call minpac#add('junegunn/fzf.vim')
+call minpac#add('tpope/vim-surround')
+call minpac#add('tpope/vim-endwise')
 "call minpac#add('neoclide/coc.nvim', { 'rev': '*', 'do': { -> pack#coc_install() } })
 "call minpac#add('fatih/vim-go')
 "let g:fzf_command_prefix = 'Fz'

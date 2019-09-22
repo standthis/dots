@@ -12,10 +12,10 @@ d_album() {
     local albums
 
     mapfile -t albums < <(mpc list album artist "$artist")
-    if (( ${#albums[@]} > 1 )) ; then
+    if (( ${#albums[@]} > 0 )) ; then
         {
-            printf '%s\n' "$all_name"
             printf '%s\n' "${albums[@]}" | sort -f
+            printf '%s\n' "$all_name"
         } | dmenu -p album "${dmenu_args[@]}"
     else
         # We only have one album, so just use that.
