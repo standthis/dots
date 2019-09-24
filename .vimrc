@@ -5,8 +5,10 @@
 "      \_/ |_|_| |_| |_|
 "                       
 colo gruvbox
+" Manually set the status line color.
 set bg=dark
 let mapleader = ","
+
 "map <SPACE> <Nop>
 "let mapleader = " "
 nmap <SPACE> ,
@@ -99,6 +101,7 @@ set smartcase
 set cursorcolumn
 set cursorline
 set pastetoggle=<F2>
+"set shellcmdflag=-ic "breaks vim
 
 augroup numbertoggle
   autocmd!
