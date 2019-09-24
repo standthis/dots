@@ -5,7 +5,7 @@
 "      \_/ |_|_| |_| |_|
 "                       
 colo gruvbox
-" Manually set the status line color.
+
 set bg=dark
 let mapleader = ","
 
