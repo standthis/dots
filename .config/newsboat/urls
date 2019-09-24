@@ -1,4 +1,6 @@
 https://www.reddit.com/r/golang.rss
+https://www.reddit.com/r/ruby.rss
+https://www.reddit.com/r/rails.rss
 https://berlinstartupjobs.com/engineering/rss
 https://www.archlinux.org/feeds/packages/
 https://www.archlinux.org/feeds/packages/added/
@@ -20,6 +22,15 @@ https://nvd.nist.gov/feeds/xml/cve/misc/nvd-rss.xml
 https://nvd.nist.gov/feeds/xml/cve/misc/nvd-rss-analyzed.xml
 http://www.securityfocus.com/rss/vulnerabilities.xml
 http://www.securityfocus.com/rss/news.xml
+https://www.reddit.com/r/vim.rss
+https://www.reddit.com/r/neovim.rss
+https://www.reddit.com/r/vimporn.rss
+https://www.reddit.com/r/thinkpad.rss
+https://www.reddit.com/r/bash.rss
+https://www.reddit.com/r/zsh.rss
+https://www.reddit.com/r/C_Programming.rss
+https://www.reddit.com/r/golang.rss
+https://www.reddit.com/r/rust.rss
 
 https://carbonite.co.za/index.php?forums/laptop.32/index.rss
 http://feeds.feedburner.com/nodatatv
