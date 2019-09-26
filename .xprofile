@@ -5,7 +5,7 @@ xrdb -merge ~/.Xresources
 
 command -v xwallpaper >/dev/null 2>&1 && xwallpaper --zoom ~/images/1565382505333.jpg & 
 
-for bin in unclutter mpd clipmenud 
+for bin in unclutter clipmenud 
 do
     command -v $bin >/dev/null 2>&1 && $bin & 
 done

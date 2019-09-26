@@ -46,7 +46,6 @@ fi
 shopt -s histappend
 PROMPT_DIRTRIM=3
 HISTCONTROL=ignoredups:erasedups
-HISTSIZE= HISTFILESIZE= 
 HISTIGNORE='cd:ls:history:lf:x:xs:l:la:exa:xx:newsboat*:vim:z:neofetch:..:mp:gt:redshift*:calcurse'
 HISTTIMEFORMAT="%Y/%m/%d %H:%M:%S:  "
 PROMPT_COMMAND="history -a; $PROMPT_COMMAND"

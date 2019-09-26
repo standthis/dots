@@ -35,7 +35,7 @@ augroup filetype_settings
   autocmd!
 
   au BufRead,BufNewFile *.md setlocal textwidth=80 spell spelllang=en_us complete+=kspell
-  au BufRead,BufNewFile *.tex setlocal spell spelllang=en_us complete+=kspell
+  au BufRead,BufNewFile *.tex setlocal spell spelllang=en_us complete+=kspell norelativenumber
   autocmd BufNewFile,BufReadPost aliasrc setlocal filetype=sh
   autocmd FileType make setlocal noexpandtab
 
@@ -137,6 +137,8 @@ call minpac#add('junegunn/fzf.vim')
 call minpac#add('tpope/vim-surround')
 call minpac#add('tpope/vim-endwise')
 call minpac#add('tpope/vim-fugitive')
+"call minpac#add('michaeljsmith/vim-indent-object')
+"call minpac#add('easymotion/vim-easymotion')
 
 "call minpac#add('neoclide/coc.nvim', { 'rev': '*', 'do': { -> pack#coc_install() } })
 "call minpac#add('fatih/vim-go')

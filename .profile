@@ -1,6 +1,8 @@
 #!/bin/sh
 # Profile file. Runs on login.
 
+# Here in attempt to fix SSH login bash history deletion
+HISTSIZE= HISTFILESIZE= 
 # Adds `~/.scripts` and all subdirectories to $PATH
 export PATH=$PATH:$HOME/bin/
 export EDITOR="vim"
