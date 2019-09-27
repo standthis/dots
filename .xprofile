@@ -3,10 +3,5 @@
 setxkbmap -option caps:escape
 xrdb -merge ~/.Xresources
 
-#command -v xwallpaper >/dev/null 2>&1 && xwallpaper --zoom ~/images/1565382505333.jpg & 
-
-for bin in unclutter
-do
-    command -v $bin >/dev/null 2>&1 && $bin & 
-done
-
+command -v xwallpaper >/dev/null 2>&1 && xwallpaper --zoom ~/img/floyd.png & 
+command -v unclutter >/dev/null 2>&1 && unclutter & 

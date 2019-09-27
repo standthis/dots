@@ -3,20 +3,20 @@
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
-static const int showbar            = 1;        /* 0 means no bar */
+static const int showbar            = 0;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Source Code Pro:size=10", };
 static const char dmenufont[]       = "Source Code Pro:size=10";
-static const char normbordercolor[] = "#1d2021"; // #282828
-static const char normbgcolor[]     = "#1d2021";
+static const char normbordercolor[] = "#282828"; // #282828
+static const char normbgcolor[]     = "#282828";
 static const char normfgcolor[]     = "#f9f5d7";
 static const char selbordercolor[]  = "#076678";
-static const char selbgcolor[]      = "#076678";
+static const char selbgcolor[]      = "#32302f";
 static const char selfgcolor[]      = "#f9f5d7";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
-	[SchemeSel] =  { selbgcolor,  normbgcolor,  normbordercolor },
+	[SchemeSel] =  { selbordercolor,  normbgcolor,  selbgcolor },
 };
 
 /* tagging */
@@ -29,7 +29,8 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	//{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "Firefox",  NULL,       NULL,       1 << 0,       0,           -1 },
+	{ "alacritty",  NULL,       NULL,     1 << 1,       0,           -1 },
 };
 
 /* layout(s) */
@@ -65,11 +66,15 @@ static const char *clipmenu[] = { "clipmenu", "-i", "-fn", dmenufont, "-nb", nor
 static const char *passmenu[] = { "passmenu", "-i", "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selfgcolor, "-sf", selbordercolor, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *slock[]  = { "slock", NULL };
+//static const char *urxvt[]  = { "urxvt", NULL };
+static const char *atmux[]  = { "alacritty", "-e", "tmux", NULL };
 static const char *alacritty[]  = { "alacritty", NULL };
+static const char *termite[]  = { "termite", NULL };
 static const char *signaldesktop[]  = { "signal-desktop", NULL };
 static const char *soulseek[]  = { "soulseekqt", NULL };
 static const char *browser[]  = { "firefox", NULL };
 static const char *browserp[]  = { "firefox", "-private-window", NULL };
+static const char *chromium[]  = { "chromium", NULL };
 static const char *volup[]  = { "amixer", "-q", "-M", "set", "Master", "2%+", "unmute", NULL };
 static const char *voldown[]  = { "amixer", "-q", "-M", "set", "Master", "2%-", "unmute", NULL };
 static const char *volzero[]  = { "amixer", "-M", "sset", "Master", "0%", NULL };
@@ -82,9 +87,12 @@ static Key keys[] = {
 	/* modifier                     key            function        argument */
 	{ MODKEY,                       XK_p,          spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_a,          spawn,          {.v = alacritty } },
+	{ MODKEY|ShiftMask,             XK_a,          spawn,          {.v = termite } },
 	{ MODKEY,                       XK_Return,     spawn,          {.v = termcmd } },
-        { MODKEY,                       XK_backslash,  spawn,          {.v = browser } },
-        { MODKEY|ControlMask,           XK_backslash,  spawn,          {.v = browserp } },
+	{ MODKEY|ControlMask,           XK_Return,     spawn,          {.v = atmux } },
+    { MODKEY,                       XK_backslash,  spawn,          {.v = browser } },
+    { MODKEY|ShiftMask,             XK_backslash,  spawn,          {.v = chromium } },
+    { MODKEY|ControlMask,           XK_backslash,  spawn,          {.v = browserp } },
 //	{ MODKEY|ShiftMask,             XK_z,          spawn,          {.v = slock } },
 	{ MODKEY,                       XK_Delete,     spawn,          {.v = slock } },
 	{ MODKEY,                       XK_Insert,     spawn,          {.v = signaldesktop } },

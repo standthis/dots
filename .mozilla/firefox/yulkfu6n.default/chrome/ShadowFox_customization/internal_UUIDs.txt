@@ -1,0 +1,12 @@
+formautofill@mozilla.org=3cd4739b-9355-4bd9-8c94-c3ebed3cc1b8
+screenshots@mozilla.org=51366af0-9aa9-4762-8ce0-ba32039a5132
+webcompat-reporter@mozilla.org=bc345901-9e10-4bce-ba38-fa9f7ccc4c77
+webcompat@mozilla.org=6ca420ef-8337-4fc9-9951-f8b04df2b5cc
+fxmonitor@mozilla.org=b294f145-c5ec-41c9-9da7-c652c16b3e3f
+baidu-code-update@mozillaonline.com=7e80fdab-5979-49de-917b-3f7091e9a3bd
+uBlock0@raymondhill.net=f8872094-5b75-4c3a-aa6a-f52a2239d311
+addon@darkreader.org=61d1b214-0c89-4c12-b967-6b95cd940d34
+vim-vixen@i-beam.org=a8cb2dc3-0ad9-4bf6-b1aa-6d8c0ca63902
+{20fc2e06-e3e4-4b2b-812b-ab431220cada}=702f0234-ef8a-44a4-ab6e-e234740fb70d
+https-everywhere-eff@eff.org=741985c1-739d-4903-84bc-574617485fc4
+{73a6fe31-595d-460b-a920-fcc0f8843232}=a0e90012-523a-4daa-9741-36263beadac0
