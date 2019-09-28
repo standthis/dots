@@ -52,7 +52,7 @@ PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 #PROMPT_COMMAND="history -a; history -c; history -r; ${PROMPT_COMMAND}"
 #PROMPT_COMMAND="history -n; history -w; history -c; history -r; $PROMPT_COMMAND"
 
-shopt -s cmdhist autocd dirspell cdspell extglob
+shopt -s cmdhist autocd dirspell cdspell extglob nocaseglob
 
 # Disable ctrl-s and ctrl-q.
 stty -ixon
