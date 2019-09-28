@@ -5,3 +5,5 @@ xrdb -merge ~/.Xresources
 
 command -v xwallpaper >/dev/null 2>&1 && xwallpaper --zoom ~/img/floyd.png & 
 command -v unclutter >/dev/null 2>&1 && unclutter & 
+command -v redshift >/dev/null 2>&1 && redshift -l -33.3135911:26.5163135 & 
+

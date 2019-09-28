@@ -12,7 +12,7 @@ d_album() {
     local albums
 
     mapfile -t albums < <(mpc list album artist "$artist")
-    if (( ${#albums[@]} > 0 )) ; then
+    if (( ${#albums[@]} > 0 )) ; then # We want to see the one album.
         {
             printf '%s\n' "${albums[@]}" | sort -f
             printf '%s\n' "$all_name"

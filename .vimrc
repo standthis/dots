@@ -101,6 +101,7 @@ set smartcase
 set cursorcolumn
 set cursorline
 set pastetoggle=<F2>
+set shortmess=I
 "set shellcmdflag=-ic "breaks vim
 
 augroup numbertoggle
