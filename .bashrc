@@ -44,6 +44,7 @@ fi
 
 # HISTORY
 shopt -s histappend
+HISTSIZE= HISTFILESIZE= 
 PROMPT_DIRTRIM=3
 HISTCONTROL=ignoredups:erasedups
 HISTIGNORE='cd:ls:history:lf:x:xs:l:la:exa:xx:newsboat*:vim:z:neofetch:..:mp:gt:redshift*:calcurse'

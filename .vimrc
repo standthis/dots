@@ -27,6 +27,7 @@ nnoremap <leader>R :Rg<CR>
 nnoremap <Leader>p :bp<CR>
 nnoremap <Leader>n :bn<CR>
 nnoremap <Leader>w :w<CR>
+nnoremap <Leader>/ :!mpc<CR>
 
 " markdown file linewidth rule
 augroup filetype_settings
@@ -35,7 +36,7 @@ augroup filetype_settings
   autocmd!
 
   au BufRead,BufNewFile *.md setlocal textwidth=80 spell spelllang=en_us complete+=kspell
-  au BufRead,BufNewFile *.tex setlocal spell spelllang=en_us complete+=kspell norelativenumber
+  au BufRead,BufNewFile *.tex setlocal spell spelllang=en_us complete+=kspell 
   autocmd BufNewFile,BufReadPost aliasrc setlocal filetype=sh
   autocmd FileType make setlocal noexpandtab
 

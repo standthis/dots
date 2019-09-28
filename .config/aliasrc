@@ -105,6 +105,7 @@ alias lck="slock"
 alias libr="cd ~/honours/lib && lf"
 alias cless="ccat $1 | less"
 alias mp="ncmpcpp -b $HOME/.ncmpcpp/ncmpcpp.bindings"
+alias m="mpc"
 alias alsamixer="alsamixer -g"
 alias nb="newsboat -r"
 alias n='nnn'
