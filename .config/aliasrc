@@ -111,7 +111,8 @@ alias nb="newsboat -r"
 alias n='nnn'
 alias r='ranger'
 alias d='docker'
-alias s='systemctl'
+alias ss='systemctl'
+alias sss='sudo systemctl'
 alias p="pacman"
 alias nv="nvim"
 
@@ -124,10 +125,15 @@ alias gp='git push'
 alias gcl='git clone --recursive'
 alias gst='git status'
 alias rgc='rg --color=always'
+alias songinfo='file "music/$(mpc current -f %file%)"'
 
 # ---------------------------------------------------------------------------------------------------
 #  FUNCTIONS
 # ---------------------------------------------------------------------------------------------------
+
+bitrate () {
+    echo `basename "$1"`: `file "$1" | sed 's/.*, \(.*\)kbps.*/\1/' | tr -d " " ` kbps
+}
 
 ..cd () {
     cd ..
