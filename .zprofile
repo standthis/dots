@@ -4,9 +4,9 @@ export PATH=$PATH:$(go env GOPATH)/bin
 export PATH=$PATH:$HOME/.cargo/bin
 export PATH=$PATH:$HOME/.scripts
 
-export EDITOR="nvim"
+export EDITOR="vim"
 export TERMINAL="st"
-export BROWSER="qutebrowser"
+export BROWSER="firefox"
 export READER="zathura"
 export FILE="lf"
 
