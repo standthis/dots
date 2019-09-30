@@ -64,7 +64,7 @@
     "<S-Esc>": { "type": "addon.toggle.enabled" }
   },
   "search": {
-    "default": "startpage",
+    "default": "localsx",
     "engines": {
       "startpage": "https://www.startpage.com/do/dsearch?query={}",
       "g": "https://google.com/search?q={}",
@@ -72,6 +72,7 @@
       "sx": "https://searx.orcadian.net/?q={}",
       "s": "https://searx.orcadian.net/?q={}",
       "x": "http://searx.me/?q={}",
+      "localsx": "http://localhost:8888/?q={}",
       "aw": "https://wiki.archlinux.org/index.php?title=Special%3ASearch&search={}",
       "dis": "https://www.discogs.com/search/?q={}&type=all",
       "q": "https://www.qwant.com/?q={}&t=web",
