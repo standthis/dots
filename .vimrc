@@ -37,7 +37,9 @@ augroup filetype_settings
 
   au BufRead,BufNewFile *.md setlocal textwidth=80 spell spelllang=en_us complete+=kspell
   au BufRead,BufNewFile *.tex setlocal spell spelllang=en_us complete+=kspell 
-  autocmd BufNewFile,BufReadPost aliasrc setlocal filetype=sh
+  autocmd BufNewFile,BufReadPost aliasrc,ctl* setlocal filetype=sh
+  autocmd BufNewFile,BufReadPost spec setlocal filetype=yaml
+  autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType make setlocal noexpandtab
 
 augroup END

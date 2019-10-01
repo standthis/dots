@@ -11,8 +11,11 @@
 #done
 
 # PROMPT
+#ssh-ps1() {
+#    printf "%s" "$HOSTNAME "
+#}
 ssh-ps1() {
-    printf "%s" "$HOSTNAME "
+    printf "ssh "
 }
 
 __git_ps1() { :;}
