@@ -1,0 +1,8 @@
+#!/bin/sh
+if [ "$1" -lt "20" ]
+then    
+    amixer -M sset 'Master' $1% 
+else 
+    echo gtfo | grep --color gtfo
+fi
+

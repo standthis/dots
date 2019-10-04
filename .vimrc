@@ -16,18 +16,18 @@ nmap <SPACE> ,
 noremap <C-q> :confirm qall<CR>
 nnoremap <leader>x :!chmod +x %:p<CR>
 nnoremap <leader>s :!%:p<CR>
-nnoremap <leader>r :!rake<CR>
+nnoremap <leader>R :!rake<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>f :FZF<CR>
 nnoremap <leader>; @:
 nnoremap <leader>m :!make<CR>
-nnoremap <leader>g :!git add -u && git commit -m "lit update" && git push origin master<CR>
+nnoremap <leader>G :!git add -u && git commit -m "lit update" && git push origin master<CR>
 nnoremap <leader>e :!go run %:p<CR>
-nnoremap <leader>R :Rg<CR>
+nnoremap <leader>r :Rg<CR>
 nnoremap <Leader>p :bp<CR>
 nnoremap <Leader>n :bn<CR>
 nnoremap <Leader>w :w<CR>
-nnoremap <Leader>/ :!mpc<CR>
+nnoremap <Leader>/ :!date && mpc<CR>
 
 " markdown file linewidth rule
 augroup filetype_settings
