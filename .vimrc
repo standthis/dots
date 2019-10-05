@@ -12,7 +12,7 @@ let mapleader = ","
 "map <SPACE> <Nop>
 "let mapleader = " "
 nmap <SPACE> ,
-" Run current script
+
 noremap <C-q> :confirm qall<CR>
 nnoremap <leader>x :!chmod +x %:p<CR>
 nnoremap <leader>s :!%:p<CR>
@@ -36,12 +36,37 @@ augroup filetype_settings
   autocmd!
 
   au BufRead,BufNewFile *.md setlocal textwidth=80 spell spelllang=en_us complete+=kspell
-  au BufRead,BufNewFile *.tex setlocal spell spelllang=en_us complete+=kspell 
+  "au BufRead,BufNewFile *.tex setlocal spell spelllang=en_us complete+=kspell 
   autocmd BufNewFile,BufReadPost aliasrc,ctl* setlocal filetype=sh
   autocmd BufNewFile,BufReadPost spec setlocal filetype=yaml
-  autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType make setlocal noexpandtab
 
+  for filetype in ['tex', 'plaintex', 'mail']
+    exe 'autocmd FileType ' . filetype . ' setlocal spell'
+  endfo
+
+  for filetype in ['yaml', 'sql', 'ruby', 'html', 'css', 'xml', 'php', 'vim']
+    exe 'autocmd FileType ' . filetype . ' setlocal sw=2 sts=2 ts=2'
+  endfor
+
+augroup END
+
+augroup modechange_settings
+  autocmd!
+
+  " Clear search context when entering insert mode, which implicitly stops the
+  " highlighting of whatever was searched for with hlsearch on. It should also
+  " not be persisted between sessions.
+  autocmd InsertEnter * let @/ = ''
+  autocmd BufReadPre,FileReadPre * let @/ = ''
+
+  autocmd InsertLeave * setlocal nopaste
+
+  " Jump to last position in file currently in vim defaults
+  "autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"" | endif 
+
+  " Balance splits on window resize
+  autocmd VimResized * wincmd =
 augroup END
 
 " When started as "evim", evim.vim will already have done these settings.
