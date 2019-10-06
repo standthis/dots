@@ -144,6 +144,10 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
+" Quickly move around (and into) command mode
+imap jk <Esc>
+imap kj <Esc>:
+
 " Give :terminal Esc behavior
 tnoremap <Esc> <C-\><C-n>
 

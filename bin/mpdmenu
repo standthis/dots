@@ -24,7 +24,7 @@ d_album() {
 }
 
 d_playlist() {
-    local format="%position% - %title% - %album% - %artist%"
+    local format="%position% - %title%  - %album% - %artist% (%date%)"
     local track
 
     track=$(mpc playlist -f "$format" | dmenu -p track "${dmenu_args[@]}")
@@ -80,7 +80,5 @@ case "$mode" in
         else
             mpc find artist "$artist" album "$album" | sort | mpc add
         fi
-
-        mpc play >/dev/null 2>&1
     ;;
 esac
