@@ -42,6 +42,9 @@ augroup filetype_settings
 
 augroup END
 
+autocmd! FileType fzf
+autocmd  FileType fzf set laststatus=0 noshowmode noruler
+  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 
 set inccommand=nosplit
 set expandtab shiftwidth=4 softtabstop=-1

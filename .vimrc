@@ -62,8 +62,8 @@ augroup modechange_settings
 
   autocmd InsertLeave * setlocal nopaste
 
-  " Jump to last position in file currently in vim defaults
-  "autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"" | endif 
+  " Jump to last position in file 
+  autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"" | endif 
 
   " Balance splits on window resize
   autocmd VimResized * wincmd =
@@ -74,9 +74,6 @@ if v:progname =~? "evim"
   finish
 endif
 
-" Get the defaults that most users want.
-source $VIMRUNTIME/defaults.vim
-
 if has("vms")
   set nobackup		" do not keep a backup file, use versions instead
 else
@@ -84,11 +81,6 @@ else
   if has('persistent_undo')
     set undofile	" keep an undo file (undo changes after closing)
   endif
-endif
-
-if &t_Co > 2 || has("gui_running")
-  " Switch on highlighting the last used search pattern.
-  set hlsearch
 endif
 
 " Only do this part when compiled with support for autocommands.
@@ -118,18 +110,28 @@ endif " has("autocmd")
 if has('syntax') && has('eval')
   packadd! matchit
 endif
+
+endif
+filetype plugin on
+syntax on
+
 set clipboard=unnamed
 set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
 set undofile
 set splitright
-set number relativenumber
+set number
+set relativenumber
 set incsearch
 set ignorecase
+set linebreak
 set smartcase
 set cursorcolumn
 set cursorline
 set pastetoggle=<F2>
 set shortmess=I
+set backspace=indent,eol,start
+set scrolloff=15 "defaults.vim is 5
+set hlsearch
 "set shellcmdflag=-ic "breaks vim
 
 augroup numbertoggle
