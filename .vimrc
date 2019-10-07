@@ -96,7 +96,7 @@ if has('syntax') && has('eval')
   packadd! matchit
 endif
 
-filetype plugin on
+filetype plugin indent on
 syntax on
 
 set display=truncate
