@@ -111,7 +111,6 @@ if has('syntax') && has('eval')
   packadd! matchit
 endif
 
-endif
 filetype plugin on
 syntax on
 
