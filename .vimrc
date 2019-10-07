@@ -63,7 +63,10 @@ augroup modechange_settings
   autocmd InsertLeave * setlocal nopaste
 
   " Jump to last position in file 
-  autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"" | endif 
+  autocmd BufReadPost *
+    \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+    \ |   exe "normal! g`\""
+    \ | endif
 
   " Balance splits on window resize
   autocmd VimResized * wincmd =
@@ -83,24 +86,6 @@ else
   endif
 endif
 
-" Only do this part when compiled with support for autocommands.
-if has("autocmd")
-
-  " Put these in an autocmd group, so that we can delete them easily.
-  augroup vimrcEx
-  au!
-
-  " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal textwidth=78
-
-  augroup END
-
-else
-
-  set autoindent		" always set autoindenting on
-
-endif " has("autocmd")
-
 " Add optional packages.
 "
 " The matchit plugin makes the % command work better, but it is not backwards
@@ -114,11 +99,16 @@ endif
 filetype plugin on
 syntax on
 
+set display=truncate
+set showcmd		" display incomplete commands
+set wildmenu		" display completion matches in a status line
+set history=200		" keep 200 lines of command line history
 set clipboard=unnamed
 set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
 set undofile
 set splitright
 set number
+set autoindent
 set relativenumber
 set incsearch
 set ignorecase
@@ -131,6 +121,8 @@ set shortmess=I
 set backspace=indent,eol,start
 set scrolloff=15 "defaults.vim is 5
 set hlsearch
+set ttimeout		" time out for key codes
+set ttimeoutlen=100	" wait up to 100ms after Esc for special key
 "set shellcmdflag=-ic "breaks vim
 
 augroup numbertoggle
