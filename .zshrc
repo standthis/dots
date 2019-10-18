@@ -4,10 +4,6 @@
 #     / /\__ \ | | | | | (__ 
 #    /___|___/_| |_|_|  \___|
 #    
-# Edit line in vim 
-autoload -U edit-command-line
-zle -N edit-command-line
-bindkey "^X^E" edit-command-line
 
 # Emacs bindings
 bindkey -e
@@ -108,3 +104,9 @@ stty -ixon
 [ -f "$HOME/.config/aliasrc" ] && . "$HOME/.config/aliasrc"
 
 # ---------------------------------------------------------------------------------------------------
+
+# Edit line in vim 
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey "^X^E" edit-command-line
+bindkey '^xe' edit-command-line
