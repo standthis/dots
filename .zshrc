@@ -5,7 +5,7 @@
 #    /___|___/_| |_|_|  \___|
 #    
 
-# Emacs bindings
+# Emacs mode
 bindkey -e
 
 # Prompt
@@ -31,10 +31,10 @@ vcs_info_wrapper() {
 }
 export PS1='%F{red}%(?..%? )%f%B%~%b $(vcs_info_wrapper)%% '
 
-#Colors completion
+#colors / completion
 zstyle ':completion:*:default' list-colors "${(s.:.)LS_COLORS}"
 
-# Hist
+#history
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=50000
 SAVEHIST=$HISTSIZE
@@ -43,6 +43,7 @@ setopt append_history
 setopt hist_ignore_space
 
 # options
+set -o autocd
 set -o always_to_end
 set -o append_history
 set -o complete_in_word
@@ -60,7 +61,6 @@ set -o nullglob
 set -o prompt_subst
 set -o rmstarsilent
 set -o shwordsplit
-set -o autocd
 #set -o correctall
 
 # completion
@@ -110,3 +110,8 @@ autoload -U edit-command-line
 zle -N edit-command-line
 bindkey "^X^E" edit-command-line
 bindkey '^xe' edit-command-line
+
+#keybindings
+if [[ "${terminfo[kcbt]}" != "" ]]; then
+  bindkey "${terminfo[kcbt]}" reverse-menu-complete   # [Shift-Tab] - move through the completion menu backwards
+fi
