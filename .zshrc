@@ -101,9 +101,9 @@ stty -ixon
 # .
 # ---------------------------------------------------------------------------------------------------
 
-[ -e ~/.config/fzf ] && . ~/.config/fzf/completion.zsh && . ~/.config/fzf/key-bindings.zsh
+[ -e "$HOME/.config/fzf" ] && . "$HOME/.config/fzf/completion.zsh" && . "$HOME/.config/fzf/key-bindings.zsh"
 
-[[ -r "/usr/share/z/z.sh" ]] && . /usr/share/z/z.sh 
+[ -r "/usr/share/z/z.sh" ] && . /usr/share/z/z.sh 
 
 [ -f "$HOME/.config/aliasrc" ] && . "$HOME/.config/aliasrc"
 
