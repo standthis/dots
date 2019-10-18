@@ -89,6 +89,7 @@ alias za="zathura --fork"
 alias ccat='highlight --out-format=ansi'
 #alias c='cd'
 alias xc="tr -d '\n' |  xclip -selection clipboard"
+alias xcall="xclip -selection clipboard"
 alias v='$EDITOR'
 alias gt='gotop'
 alias qute='cd $HOME/.config/qutebrowser/'
@@ -114,6 +115,7 @@ alias r='ranger'
 alias d='docker'
 alias sss='sudo systemctl'
 alias p="pacman"
+alias sp="sudo pacman"
 alias nv="nvim"
 
 # GIT

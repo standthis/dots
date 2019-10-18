@@ -15,7 +15,8 @@ nmap <SPACE> ,
 
 noremap <C-q> :confirm qall<CR>
 nnoremap <leader>x :!chmod +x %:p<CR>
-nnoremap <leader>s :!%:p<CR>
+nnoremap <leader>s :!%:p
+nnoremap <leader>S :!%:p<CR>
 nnoremap <leader>R :!rake<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>f :FZF<CR>
@@ -27,7 +28,7 @@ nnoremap <leader>r :Rg<CR>
 nnoremap <Leader>p :bp<CR>
 nnoremap <Leader>n :bn<CR>
 nnoremap <Leader>w :w<CR>
-nnoremap <Leader>/ :!date && mpc<CR>
+nnoremap <Leader>/ :!date \| grep --color=always ':' && mpc<CR>
 
 " markdown file linewidth rule
 augroup filetype_settings
@@ -35,7 +36,9 @@ augroup filetype_settings
   " over again
   autocmd!
 
-  au BufRead,BufNewFile *.md setlocal textwidth=80 spell spelllang=en_us complete+=kspell
+  au BufRead,BufNewFile *.md setlocal textwidth=79 spell spelllang=en_us complete+=kspell
+  au BufRead,BufNewFile *.mail setlocal spell spelllang=en_us complete+=kspell
+  autocmd BufNewFile,BufReadPost *.md setlocal filetype=markdown
   "au BufRead,BufNewFile *.tex setlocal spell spelllang=en_us complete+=kspell 
   autocmd BufNewFile,BufReadPost aliasrc,ctl* setlocal filetype=sh
   autocmd BufNewFile,BufReadPost spec setlocal filetype=yaml
@@ -125,11 +128,11 @@ set ttimeout		" time out for key codes
 set ttimeoutlen=100	" wait up to 100ms after Esc for special key
 "set shellcmdflag=-ic "breaks vim
 
-augroup numbertoggle
-  autocmd!
-  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-augroup END
+"augroup numbertoggle
+"  autocmd!
+"  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+"  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+"augroup END
 
 " Easy pane naviation 
 map <C-j> <C-W>j
