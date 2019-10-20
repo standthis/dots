@@ -29,8 +29,9 @@ vcs_info_wrapper() {
     echo "%{$fg[grey]%}${vcs_info_msg_0_}%{$reset_color%}$del"
   fi
 }
-#export PS1='%F{red}%(?..%? )%f%B%2~%b $(vcs_info_wrapper)%F{cyan}%%%f '
-export PS1='%F{red}%(?..%? )%f%40<...<%B%~%b%<< $(vcs_info_wrapper)%F{cyan}%%%f '
+export PS1='%F{red}%(?..%? )%f%40<...<%~%<< $(vcs_info_wrapper)%F{cyan}%%%f '
+#export PS1='%F{red}%(?..%? )%f%40<...<%B%~%b%<< $(vcs_info_wrapper)%F{cyan}%%%f '
+#export PS1='%F{red}%(?..%? )%f%40<...<%B%~%b%<< $(vcs_info_wrapper)%% '
 
 #colors / completion
 zstyle ':completion:*:default' list-colors "${(s.:.)LS_COLORS}"
@@ -116,3 +117,21 @@ bindkey '^xe' edit-command-line
 if [[ "${terminfo[kcbt]}" != "" ]]; then
   bindkey "${terminfo[kcbt]}" reverse-menu-complete   # [Shift-Tab] - move through the completion menu backwards
 fi
+#function precmd () {
+#  window_title="\033]0;${PWD}\007"
+#  echo -ne "$window_title"
+#}
+#function precmd () {
+#  window_title="\033]0;${PWD##*/}\007"
+#  echo -ne "$window_title"
+#}
+#DISABLE_AUTO_TITLE="true"
+# Update title on change of directory
+#function title-pwd () {
+#  window_title="\033]0;${PWD/#$HOME/~}\007"
+#  echo -ne "$window_title"
+#}
+#title-pwd
+#function chpwd () {
+#    title-pwd
+#}
