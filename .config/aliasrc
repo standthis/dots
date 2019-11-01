@@ -150,16 +150,16 @@ bitrate () {
     cd "$@"
 }
 
-cd () {
-    if [ $# -eq 1 ] && [ -f "$1" ] ; then
-        path=$(dirname "$1")
-        [ ! -e "$path" ] && return 1
-        printf '\e[32m%-6s\n\e[m' "$1 -> $path"
-        builtin cd "$path"
-    else 
-        builtin cd "$@"
-    fi
-}
+#cd () {
+#    if [ $# -eq 1 ] && [ -f "$1" ] ; then
+#        path=$(dirname "$1")
+#        [ ! -e "$path" ] && return 1
+#        printf '\e[32m%-6s\n\e[m' "$1 -> $path"
+#        builtin cd "$path"
+#    else 
+#        builtin cd "$@"
+#    fi
+#}
 
 c () { [ $# -eq 1 ] && [ -f "$1" ] && ccat --force "$1" || builtin cd "$1" ; }
 
